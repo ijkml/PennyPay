@@ -1,0 +1,128 @@
+@use "./fonts";
+@use "./vars";
+
+:root {
+  --scrollbar-track: @wht;
+  --scrollbar-thumb: @sec;
+
+  --divider-color-light: rgba(60, 60, 60, 0.12);
+  --divider-color-dark: rgba(84, 84, 84, 0.48);
+
+  --divider-color: var(--divider-color-light);
+  // --app-theme-bg: #{$wht};
+
+  &.dark {
+    --divider-color: var(--divider-color-dark);
+    // --app-theme-bg: #{$blk};
+
+    --scrollbar-track: #101a1b;
+    --scrollbar-thumb: var(--divider-color-dark);
+  }
+}
+
+:root {
+  font-family: "EestiPro", "Source Sans Pro", system-ui, -apple-system, Ubuntu, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+::selection {
+  background-color: $pri;
+  color: #fefefe;
+}
+
+html,
+.theme-transition {
+  overflow-y: scroll;
+  transition-property: color, background;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  overflow-y: scroll;
+  background-color: var(--app-theme-bg);
+
+  &.light {
+    color-scheme: light;
+    color: rgba(50, 50, 50, 0.9);
+  }
+
+  &.dark {
+    color-scheme: dark;
+    color: $wht;
+  }
+}
+
+* {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  max-width: 8px;
+
+  &-track,
+  &-corner {
+    background-color: var(--scrollbar-track);
+  }
+
+  &-thumb {
+    background-color: var(--scrollbar-thumb);
+  }
+}
+
+.page {
+  &-enter-active,
+  &-leave-active {
+    transition: all 500ms;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    filter: blur(0.5rem);
+  }
+}
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.nav-overlay {
+  @apply fixed h-full w-full z-6 backdrop-filter
+    of-hidden bg-black/50 top-0 left-0;
+
+  // --tw-backdrop-blur: blur(0.05rem);
+}
+
+.hr,
+.divider {
+  border: solid;
+  border-width: thin 0 0;
+  border-color: var(--divider-color);
+
+  @apply flex-1 h-0 max-h-0 max-w-full block;
+
+  &.inset {
+    @apply max-w-4/5;
+  }
+}
+
+.max-screen {
+  &,
+  &-cont {
+    @apply xl:(max-w-screen-xl) mx-auto;
+  }
+
+  &-cont {
+    @apply container;
+  }
+}
