@@ -272,7 +272,6 @@ import { features, sproof, stats } from '@data/homepage';
 
   background: $blk var(--hero-bg) center / cover no-repeat;
   // #13331b,#0d2218,#045256
-  margin-top: 0 - $nav-height;
 
   > div {
     @apply lg:(flex) w-full z-0 py-9 mt-16;
