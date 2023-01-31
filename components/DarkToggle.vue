@@ -1,12 +1,6 @@
 <script setup lang="ts">
 type AppColorScheme = 'dark' | 'light';
 
-const props = defineProps<{
-  noMotion?: boolean;
-}>();
-
-const { noMotion } = toRefs(props);
-
 const icon = ref<0 | 1 | 2>(0);
 
 const colorMode = useColorMode();
@@ -38,7 +32,6 @@ watch(preferredColor, (pref) => {
   <button
     title="Change theme"
     class="!outline-none"
-    :class="{ 'no-motion': noMotion }"
     tabindex="0"
     @click="switchTheme"
   >
@@ -62,24 +55,21 @@ watch(preferredColor, (pref) => {
 }
 
 button {
-  @apply py-2 px-2.5 bg-black inline-flex place-items-center rounded-md
-    bg-opacity-20;
+  @apply w-9 h-9 inline-flex place-items-center rounded-md
+    transition duration-300 bg-zinc-5 bg-op-0
+      focus:outline-none text-current;
 
   > span {
-    @apply block transition duration-600 transform;
-  }
-
-  &:focus,
-  &:focus-visible {
-    @apply outline-none;
+    @apply block transition m-auto duration-350
+      transform backface-hidden;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-40;
+    @apply bg-op-25;
 
-    &:not(.no-motion) > span {
-      @apply rotate-y-180;
+    span {
+      @apply rotate--135;
     }
   }
 }
