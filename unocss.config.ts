@@ -8,7 +8,27 @@ import {
   transformerVariantGroup,
 } from 'unocss';
 
+const brandColors = {
+  brand: {
+    pri: '#045256',
+    sec: '#9ab8ba',
+    lit: '#ddf7f8',
+    blk: '#0b1516',
+    wht: '#f6fcfc',
+  },
+
+  cta: {
+    btn: '#045258',
+    lit: '#068288',
+  },
+};
+
 export default defineConfig({
+  theme: {
+    colors: {
+      ...brandColors,
+    },
+  },
   shortcuts: [
     [
       'btn',

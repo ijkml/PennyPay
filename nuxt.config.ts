@@ -5,18 +5,22 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      // link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
-      link: [{ rel: 'icon', type: 'image/png', href: '/nuxt.png' }],
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       htmlAttrs: {
         lang: 'en-US',
       },
-      meta: [{ name: 'description', content: 'Vitesse Nuxt Starter (mod)' }],
+      meta: [
+        {
+          name: 'description',
+          content: 'Accept payments globally with no structural lock-in. ',
+        },
+      ],
     },
   },
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
-    // '@icons': fileURLToPath(new URL('./assets/icons', import.meta.url)),
-    // '@data': fileURLToPath(new URL('./assets/data', import.meta.url)),
+    '@icons': fileURLToPath(new URL('./assets/icons', import.meta.url)),
+    '@data': fileURLToPath(new URL('./assets/data', import.meta.url)),
   },
   modules: [
     '@vueuse/nuxt',
@@ -43,7 +47,7 @@ export default defineNuxtConfig({
       }),
     ],
   },
-  css: ['@unocss/reset/tailwind.css'],
+  css: ['@unocss/reset/tailwind.css', '@/assets/styles/root.scss'],
   colorMode: {
     classSuffix: '',
   },

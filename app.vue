@@ -1,13 +1,20 @@
 <script setup lang="ts">
+useHead({
+  titleTemplate:(titleChunk) => {
+    return titleChunk ? `${titleChunk} · PennyPay` : 'PennyPay';
+  },
+});
 </script>
 
 <template>
   <NuxtLayout>
+    <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 </template>
 
-<style>
+
+<style lang="scss">
 html,
 body,
 #__nuxt {
