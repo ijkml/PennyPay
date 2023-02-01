@@ -40,7 +40,7 @@ onClickOutside(theMmenu, closeMmenu, {
 
 <template>
   <header
-    class="app-header-def l-t-d"
+    class="app-header"
     :class="{
       scrolled,
       blend,
@@ -79,7 +79,7 @@ onClickOutside(theMmenu, closeMmenu, {
 </template>
 
 <style lang="scss" scoped>
-.app-header-def {
+.app-header {
   @apply z-8 w-full sticky top-0 bg-brand-wht/80 dark:(bg-brand-blk/80)
     transform translate-y-0 visible will-change-transform;
 

@@ -41,12 +41,22 @@ import { mobileMenu } from '@data/app-links';
 
 .link-cont {
   @apply py-4 pl-4 pr-8 grid grid-cols-1 gap-2;
+
+  &:first-of-type {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  &:not(:first-of-type) {
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+  }
 }
 
 .menu-link {
   $hover-p-width: 1em;
 
-  @apply block text-right text-lg transition duration-300
+  @apply block text-right transition duration-300
     relative outline-none select-none;
 
   padding: 0.2rem 0.25rem;

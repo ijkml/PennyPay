@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeroImage from '@img/007.svg?url';
+import HeroImage from '@img/Dash.webp?url';
 import { features, sproof, stats } from '@data/homepage';
 </script>
 
@@ -275,7 +275,7 @@ import { features, sproof, stats } from '@data/homepage';
   margin-top: -$nav-height;
 
   > div {
-    @apply lg:(flex) w-full z-0 py-9 mt-16;
+    @apply lg:(flex) w-full z-0 py-9 mt-13;
   }
 
   .text-col {
