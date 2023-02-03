@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appNavLinks } from '@data/links';
+import { headerMenu } from '@data/app-links';
 
 const props = withDefaults(
   defineProps<{
@@ -54,16 +54,26 @@ onClickOutside(theMmenu, closeMmenu, {
       </NuxtLink>
 
       <nav class="main-nav">
-        <NuxtLink
-          v-for="hl in appNavLinks"
-          :key="hl.text"
-          :to="hl.to"
-          tabindex="0"
-          active-class="active"
-          class="mn-link"
-        >
-          {{ hl.text }}
-        </NuxtLink>
+        <template v-for="menu in headerMenu">
+          <HeaderMenu
+            v-if="menu.menu"
+            :key="menu.title"
+            class="mn-link"
+            :items="menu.items"
+          >
+            {{ menu.title }}
+          </HeaderMenu>
+          <NuxtLink
+            v-else
+            :key="menu.text"
+            :to="menu.link"
+            tabindex="0"
+            active-class="active"
+            class="mn-link"
+          >
+            {{ menu.text }}
+          </NuxtLink>
+        </template>
       </nav>
 
       <div class="spread-right">
@@ -124,58 +134,28 @@ onClickOutside(theMmenu, closeMmenu, {
 }
 
 .main-nav {
-  @apply text-zinc-600 space-x-6
-    capitalize dark:text-zinc-300;
-
-  // @apply hidden lg:(flex px-16 -mx-4 flex-row items-center);
-
-  @apply hidden sm:(flex px-8 ml-auto flex-row items-center);
+  @apply space-x-6 capitalize text-brand-pri dark:(text-brand-lit)
+    hidden sm:(flex px-8 ml-auto flex-row items-center);
 }
 
 .mn-link,
 :deep(.mn-link) {
-  @apply cursor-pointer p-1 inline-flex
-    items-center justify-center;
+  @apply cursor-pointer p-0.5 inline-flex outline-none
+    items-center justify-center relative;
 
-  &:not(.dropdown) {
-    @apply duration-200 underline-offset-10;
+  &::after {
+    content: '';
 
-    text-decoration: underline solid transparent 0.1rem;
-    transition: text-decoration-color 300ms, text-underline-offset 300ms,
-      color 250ms;
-    transition-timing-function: ease;
-
-    &.active,
-    &:focus-visible,
-    &:hover {
-      @apply text-brand-pri underline-brand-pri/50
-        dark:(text-brand-lit underline-brand-lit/50)
-          outline-none;
-    }
-
-    &.active {
-      @apply underline-offset-8;
-    }
-
-    &,
-    &.active {
-      &:focus-visible,
-      &:hover {
-        @apply underline-offset-5;
-      }
-    }
+    @apply absolute top-full left-0 w-full h-0.1rem transition-300
+      op-0 bg-current transform-gpu translate-y-2;
   }
 
-  &.dropdown {
-    @apply px-6px pt-1 pb-0 transition outline-none
-      border-b-2 border-transparent;
+  &.active::after {
+    @apply op-45 translate-y-1;
+  }
 
-    &.hovered,
-    &:focus-visible,
-    &:hover {
-      @apply outline-none text-brand-pri border-brand-pri/40
-        dark:(text-brand-lit border-brand-lit/40);
-    }
+  &:is(:hover, :focus-visible)::after {
+    @apply op-45 translate-y-0;
   }
 }
 

@@ -41,8 +41,8 @@ const headerMenu: (AppLinkGroup | AppLink)[] = [
 ];
 
 const mobileMenu = [
-  { title: 'Product', menu: true, items: PRODUCT },
-  { title: 'Company', menu: true, items: COMPANY },
+  { title: 'Product', items: PRODUCT },
+  { title: 'Company', items: COMPANY },
 ];
 
 // ------------------------------------------
