@@ -28,6 +28,13 @@ export default defineConfig({
     colors: {
       ...brandColors,
     },
+    fontSize: {
+      h1: '3.0rem',
+      h2: '2.5rem',
+      h3: '1.9rem',
+      h4: '1.563rem',
+      h5: '1.25rem',
+    },
   },
   shortcuts: [
     [
