@@ -1,64 +1,24 @@
 <script setup lang="ts">
-import HeroImage from '@img/Dash.webp?url';
-import { features, sproof, stats } from '@data/homepage';
+import { features, stats } from '@data/homepage';
 </script>
 
 <template>
   <div>
-    <section
-      id="hero-sect"
-      class="dark"
-      role="region"
-      aria-labelledby="screamer-h1"
-    >
-      <div class="max-screen">
-        <div class="text-col">
-          <div>
-            <h1 id="screamer-h1">
-              Accept payments globally with no structural lock-in.
-            </h1>
-            <p>
-              We think we know that it is better to exploit vertically. Without
-              macro-vertical CAE, you will lack research and development.
-            </p>
-
-            <div class="screamer-cta">
-              <VButton>Get Started</VButton>
-            </div>
-
-            <div class="screamer-sp">
-              <p>Trusted by</p>
-              <div>
-                <div v-for="l in sproof" :key="l.name" class="logo-item">
-                  <img
-                    height="20px"
-                    width="auto"
-                    :src="`${l.logo}`"
-                    :alt="l.name"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="img-col">
-          <div>
-            <img :src="HeroImage" alt="Picture showing dashboard" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeHero />
 
     <section
-      id="section-wwd"
+      id="learn-more"
       role="region"
       class="sect-wwd"
       aria-labelledby="heading-wwd"
     >
       <div class="max-screen-cont">
         <div class="img-cont">
-          <img lazy src="@img/s-001.png" alt="" />
+          <img
+            loading="lazy"
+            src="@img/Uplabs.webp"
+            alt="Screenshots of the PennyPay mobile app in light and dark modes"
+          />
         </div>
 
         <div class="text-cont">
@@ -261,73 +221,6 @@ import { features, sproof, stats } from '@data/homepage';
 </template>
 
 <style lang="scss" scoped>
-#hero-sect {
-  --hero-bg: url('@img/subtle-prism-1.svg');
-
-  @apply flex flex-col justify-center items-center
-    overflow-hidden lg:(bg-fixed);
-
-  background: $blk var(--hero-bg) center / cover no-repeat;
-  // #13331b,#0d2218,#045256
-  margin-top: -$nav-height;
-
-  > div {
-    @apply lg:(flex) w-full z-0 py-9 mt-13;
-  }
-
-  .text-col {
-    @apply flex items-center justify-center w-full
-      px-6 py-8 lg:(min-h-32rem w-1/2);
-
-    > div {
-      @apply max-w-xl;
-    }
-  }
-
-  .img-col {
-    @apply hidden w-full h-64 sm:(h-70) lg:(flex w-1/2 h-auto) p-2;
-    // background: url('@img/006.svg') center / cover no-repeat;
-
-    > div {
-      @apply w-full h-full flex flex-col justify-center py-8;
-    }
-  }
-}
-
-#screamer-h1 {
-  font-size: clamp(2.1rem, calc(4vw + 1rem), 3rem);
-  line-height: 1.2;
-
-  @apply text-brand-lit font-bold;
-
-  & + p {
-    @apply my-5 px-1 text-lg sm:(px-0 text-xl)
-    leading-normal text-zinc-200;
-  }
-}
-
-.screamer-sp {
-  @apply mt-10;
-
-  p {
-    @apply tracking-wide text-zinc-400;
-  }
-
-  > div {
-    @apply m-0 mt-2 mr-auto flex justify-start
-      py-1px items-center flex-wrap;
-  }
-
-  .logo-item {
-    @apply m-3;
-
-    img {
-      @apply w-auto h-7 object-contain filter grayscale-100
-        invert-88 transition duration-300;
-    }
-  }
-}
-
 .heading {
   @apply leading-tight font-medium mb-3
     text-h3 max-w-lg md:(text-h2 max-w-xl);
@@ -378,8 +271,7 @@ import { features, sproof, stats } from '@data/homepage';
     @apply mb-8 md:(mb-0);
 
     img {
-      @apply max-w-full object-contain mx-auto
-        filter dark:(invert-99) transition;
+      @apply max-w-full object-contain mx-auto transition;
     }
   }
 
