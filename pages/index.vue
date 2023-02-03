@@ -87,7 +87,7 @@ import { features, sproof, stats } from '@data/homepage';
       class="sect-wwd reversed"
       aria-labelledby="heading-wcu"
     >
-      <div class="max-screen-cont">
+      <div class="wrapper">
         <div class="img-cont">
           <img lazy src="@img/s-003.png" alt="" />
         </div>
@@ -224,11 +224,11 @@ import { features, sproof, stats } from '@data/homepage';
 
     <section
       id="section-usedby"
-      class="section-cntred"
+      class="dark"
       role="region"
       aria-labelledby="heading-usedby"
     >
-      <div class="max-screen-cont">
+      <div class="max-screen">
         <div class="header-cont">
           <div class="pre-heading">On the shoulders of giants</div>
           <h2 id="heading-usedby" class="heading">
@@ -241,10 +241,7 @@ import { features, sproof, stats } from '@data/homepage';
             done? The woman said, The serpent tricked me, and I hid myself.
           </p>
         </div>
-
-        <div class="usedby-brands">
-          <LogoCloud />
-        </div>
+        <LogoWall />
       </div>
     </section>
 
@@ -337,9 +334,8 @@ import { features, sproof, stats } from '@data/homepage';
 }
 
 .pre-heading {
-  @apply text-[0.83rem] tracking-[0.13em] m-1
-    mb-4 font-medium uppercase text-zinc-400
-      light:(text-zinc-600);
+  @apply text-[0.83rem] tracking-[0.13em] m-1 mb-4 font-medium
+    uppercase text-zinc-600 dark:text-zinc-400;
 }
 
 .sect-wwd {
@@ -347,7 +343,7 @@ import { features, sproof, stats } from '@data/homepage';
 
   .max-screen-cont {
     @apply items-center py-4 px-14px sm:(p-8) md:(flex)
-      @md:(max-w-none);
+      at-md:(max-w-none);
 
     > div {
       @apply w-full lg:w-1/2;
@@ -499,6 +495,24 @@ import { features, sproof, stats } from '@data/homepage';
 
     .actions {
       @apply mt-6 sm:-mx-2 space-x-2 children:(mx-2 mt-3);
+    }
+  }
+}
+
+/* ---------- 2023 ---------- */
+
+#section-usedby {
+  background-color: hsla(183, 90%, 8%, 1);
+
+  .max-screen {
+    @apply py-4 px-14px sm:(px-8 py-13) text-brand-wht;
+  }
+
+  .header-cont {
+    @apply text-center  max-w-lg md:(max-w-xl) mx-auto;
+
+    p {
+      @apply mt-5 text-lg;
     }
   }
 }
