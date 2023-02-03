@@ -505,7 +505,7 @@ import { features, sproof, stats } from '@data/homepage';
   background-color: hsla(183, 90%, 8%, 1);
 
   .max-screen {
-    @apply py-4 px-14px sm:(px-8 py-13) text-brand-wht;
+    @apply py-13 px-14px sm:(px-8) text-brand-wht;
   }
 
   .header-cont {

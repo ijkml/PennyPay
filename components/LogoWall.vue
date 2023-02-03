@@ -9,14 +9,12 @@ const logos = [
   'logo-burger-king',
   'logo-honda',
 ];
-
-const marquees = [false, true];
 </script>
 
 <template>
   <article class="wrapper">
     <div
-      v-for="mak in marquees"
+      v-for="mak in [false, true]"
       :key="`${mak}`"
       class="marquee"
       :class="{ 'marquee--reverse': mak }"
@@ -24,7 +22,7 @@ const marquees = [false, true];
       <div
         v-for="u in [false, true]"
         :key="`${u}`"
-        :aria-hidden="u"
+        v-bind="u && { 'aria-hidden': true }"
         class="marquee__group"
       >
         <svg v-for="l in logos" :key="l">
@@ -90,13 +88,20 @@ const marquees = [false, true];
 <style scoped lang="scss">
 .wrapper {
   --color-bg: hsl(184, 91%, 10%);
-  --size: clamp(6rem, 1rem + 25vw, 10rem);
+  --size: 5.6rem;
   --gap: 1rem;
   --duration: 60s;
   --scroll-end: calc(-100% - var(--gap));
 
   @apply max-w-full text-brand-lit/90 of-hidden flex flex-col
     gap-[var(--gap)] p-4 m-(x-auto b-0 t-8) transition-all;
+
+  @media (min-width: 640px) {
+    --size: 8rem;
+  }
+  @media (min-width: 768px) {
+    --size: 10rem;
+  }
 }
 
 .marquee {
