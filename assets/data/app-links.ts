@@ -25,8 +25,8 @@ const PRODUCT: AppLink[] = [
 
 const COMPANY: AppLink[] = [
   { text: 'About Us', link: '/about' },
-  { text: 'Blog & News', link: '/blog-n-news' },
-  { text: 'Press & Legal', link: '/customers' },
+  { text: 'Blog & News', link: '/news' },
+  { text: 'Press & Legal', link: '/press' },
   { text: 'Contact Us', link: '/contact' },
 ];
 

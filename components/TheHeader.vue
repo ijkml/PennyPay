@@ -103,7 +103,7 @@ onClickOutside(theMmenu, closeMmenu, {
   transition-property: transform, visibility, background-color, backdrop-filter;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  &.scrolled__ {
+  &.scrolled {
     @apply invisible translate-y--101%;
   }
 
@@ -141,7 +141,7 @@ onClickOutside(theMmenu, closeMmenu, {
 .mn-link,
 :deep(.mn-link) {
   @apply cursor-pointer p-0.5 inline-flex outline-none
-    items-center justify-center relative;
+    items-center relative tracking-wide;
 
   &::after {
     content: '';
