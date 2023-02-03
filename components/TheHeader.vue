@@ -55,14 +55,14 @@ onClickOutside(theMmenu, closeMmenu, {
 
       <nav class="main-nav">
         <template v-for="menu in headerMenu">
-          <HeaderMenu
+          <MenuHeader
             v-if="menu.menu"
             :key="menu.title"
             class="mn-link"
             :items="menu.items"
           >
             {{ menu.title }}
-          </HeaderMenu>
+          </MenuHeader>
           <NuxtLink
             v-else
             :key="menu.text"
@@ -83,7 +83,7 @@ onClickOutside(theMmenu, closeMmenu, {
     </div>
 
     <div class="mobile-menu">
-      <MobileMenu ref="theMmenu" />
+      <MenuMobile ref="theMmenu" />
     </div>
   </header>
 </template>
