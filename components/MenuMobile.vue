@@ -18,6 +18,7 @@ import { mobileMenu } from '@data/app-links';
             v-for="l in mm.items"
             :key="l.text"
             class="menu-link"
+            exact-active-class="ml-active"
             :to="l.link"
           >
             <div>{{ l.text }}</div>
@@ -31,12 +32,10 @@ import { mobileMenu } from '@data/app-links';
 
 <style scoped lang="scss">
 .menu-wrapper {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
   @apply p-2 absolute top-0 right-0 w-full max-w-60 rounded-bl-lg
-    h-auto max-h-85vh of-(x-hidden y-auto) b-(l b brand-pri op-2)
-      dark:(b-op-50 shadow-none bg-brand-blk/98) bg-brand-wht/98;
+    h-auto max-h-85vh shadow-md bg-brand-wht/98 text-zinc-6
+      of-(x-hidden y-auto) b-(l b brand-pri op-2)
+        dark:(b-op-50 bg-brand-blk/98 text-zinc-3);
 }
 
 .link-cont {
@@ -47,19 +46,22 @@ import { mobileMenu } from '@data/app-links';
     line-height: 1.75rem;
   }
 
-  &:not(:first-of-type) {
-    font-size: 0.9rem;
-    line-height: 1.25rem;
+  &:last-of-type {
+    font-size: 0.76rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+
+    @apply uppercase gap-3 tracking-wider;
   }
 }
 
 .menu-link {
-  $hover-p-width: 1em;
+  --hover-p-width: 1em;
 
   @apply block text-right transition duration-300
     relative outline-none select-none;
 
-  padding: 0.2rem 0.25rem;
+  padding: 0.25rem;
 
   div {
     @apply block transition-inherit;
@@ -70,22 +72,32 @@ import { mobileMenu } from '@data/app-links';
     transform: scale3d(0, 1, 1);
     transform-origin: 100% 50%;
     height: 0.1em;
-    width: $hover-p-width;
+    width: var(--hover-p-width);
     top: calc(50% - (0.1em / 2));
 
-    @apply transition-inherit absolute right-0 bg-zinc-4;
+    @apply transition-all-250 absolute right-0 bg-zinc-4/80;
   }
 
   &:hover,
-  &:focus-visible {
+  &:focus-visible,
+  &.ml-active {
     @apply outline-none;
 
     div {
-      transform: translate3d(-$hover-p-width, 0, 0);
+      transform: translate3d(calc(-1 * var(--hover-p-width)), 0, 0);
     }
 
     &::before {
       transform: scale3d(1, 1, 1);
+    }
+  }
+
+  &.ml-active {
+    --hover-p-width: 0.75em;
+
+    &:hover,
+    &:focus-visible {
+      --hover-p-width: 1.5em;
     }
   }
 }
