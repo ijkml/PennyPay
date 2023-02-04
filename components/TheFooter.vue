@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appFooterLinks } from '@data/links';
+import { footerMenu } from '@data/app-links';
 </script>
 
 <template>
@@ -7,26 +7,24 @@ import { appFooterLinks } from '@data/links';
     <div>
       <div class="layer-top">
         <div class="brand">
-          <div class="logo">
-            <NuxtLink to="/">
-              <TheLogo class="brand-logo" />
-            </NuxtLink>
-          </div>
+          <NuxtLink to="/">
+            <TheLogo :once="false" class="the-logo" />
+          </NuxtLink>
 
-          <p class="text">Accept payments globally, leave stress behind.</p>
+          <p class="tagline">
+            Revolutionize your transaction processing experience
+          </p>
 
           <SocialBlock />
         </div>
 
         <div class="link-grid">
           <div>
-            <div v-for="fl in appFooterLinks" :key="fl.header">
-              <h3 class="lc-header">
-                {{ fl.header }}
-              </h3>
+            <div v-for="fm in footerMenu" :key="fm.title">
+              <h3 class="lc-header" v-text="fm.title" />
               <div class="lc-col">
-                <div v-for="l in fl.links" :key="l.text" class="lc-link">
-                  <NuxtLink tabindex="0" :to="l.to">
+                <div v-for="l in fm.items" :key="l.text" class="lc-link">
+                  <NuxtLink tabindex="0" :to="l.link" :external="l.external">
                     {{ l.text }}
                   </NuxtLink>
                 </div>
@@ -36,7 +34,7 @@ import { appFooterLinks } from '@data/links';
         </div>
       </div>
 
-      <hr class="divider" />
+      <hr class="hr" />
 
       <div class="layer-bottom">
         <div class="copyright">
@@ -60,8 +58,8 @@ import { appFooterLinks } from '@data/links';
 
 <style scoped lang="scss">
 .app-footer-def {
-  @apply border-t border-[var(--divider-color)] overflow-x-hidden
-    dark:(bg-brand-blk text-white) bg-brand-wht;
+  @apply border-(t-1 zinc op-20) overflow-x-hidden bg-brand-wht
+    dark:(bg-brand-blk text-white);
 
   > div {
     @apply container px-8 mx-auto max-w-screen-xl;
@@ -74,15 +72,14 @@ import { appFooterLinks } from '@data/links';
 
 .brand {
   @apply w-full lg:(w-2/5 pr-8);
+}
 
-  .logo,
-  &-logo {
-    @apply max-w-40;
-  }
+.tagline {
+  @apply max-w-sm my-4 text-zinc-700 dark:(text-zinc-300);
+}
 
-  .text {
-    @apply max-w-sm my-4 text-zinc-700 dark:text-zinc-300;
-  }
+.the-logo {
+  @apply max-h-7 w-auto;
 }
 
 .link-grid {
