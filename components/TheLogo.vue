@@ -1,13 +1,36 @@
 <script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    /**
+     * animate the logo only once
+     */
+    once?: boolean;
+  }>(),
+  {
+    once: true,
+  }
+);
+
+const { once } = toRefs(props);
 const active = ref(false);
 
-onMounted(() => {
-  active.value = true;
+const theLogo = ref<null | HTMLElement>(null);
+
+const { stop } = useIntersectionObserver(theLogo, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    active.value = true;
+    if (once.value) {
+      stop();
+    }
+  } else {
+    active.value = false;
+  }
 });
 </script>
 
 <template>
   <svg
+    ref="theLogo"
     xmlns="http://www.w3.org/2000/svg"
     width="420"
     height="80"
