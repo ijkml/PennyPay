@@ -29,6 +29,7 @@ if (animate.value) {
   const { stop } = useIntersectionObserver(target, ([{ isIntersecting }]) => {
     if (isIntersecting) {
       source.value = fig.value;
+      stop();
     }
   });
 
@@ -40,7 +41,6 @@ if (animate.value) {
     delay: 300,
     duration: 3000,
     transition: TransitionPresets.easeInSine,
-    onFinished: stop,
   });
 }
 </script>
