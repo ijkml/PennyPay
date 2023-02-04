@@ -1,5 +1,17 @@
 <script setup lang="ts">
 import { mobileMenu } from '@data/app-links';
+
+const theMenu = ref<null | HTMLElement>(null);
+
+const { focused } = useFocusWithin(theMenu);
+
+onClickOutside(theMenu, closeMmenu, {
+  ignore: ['.menu-icon', '.dark-toggle'],
+});
+
+watch(focused, (focused) => {
+  !focused && closeMmenu();
+});
 </script>
 
 <template>
@@ -11,7 +23,12 @@ import { mobileMenu } from '@data/app-links';
     leave-from-class="translate-y-0 opacity-100"
     leave-to-class="translate-y-1 opacity-0"
   >
-    <div v-if="menuIsOpen" id="app-mobile-menu" class="menu-wrapper">
+    <div
+      v-if="menuIsOpen"
+      id="app-mobile-menu"
+      ref="theMenu"
+      class="menu-wrapper"
+    >
       <template v-for="mm in mobileMenu" :key="mm.title">
         <div class="link-cont">
           <NuxtLink
@@ -20,6 +37,7 @@ import { mobileMenu } from '@data/app-links';
             class="menu-link"
             exact-active-class="ml-active"
             :to="l.link"
+            @click="closeMmenu"
           >
             <div>{{ l.text }}</div>
           </NuxtLink>

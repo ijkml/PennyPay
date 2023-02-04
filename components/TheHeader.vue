@@ -30,12 +30,6 @@ watchThrottled(
   },
   { throttle: 150 }
 );
-
-const theMmenu = ref<null | HTMLElement>(null);
-
-onClickOutside(theMmenu, closeMmenu, {
-  ignore: ['.menu-icon', '.dark-toggle'],
-});
 </script>
 
 <template>
@@ -83,7 +77,7 @@ onClickOutside(theMmenu, closeMmenu, {
     </div>
 
     <div class="mobile-menu">
-      <MenuMobile ref="theMmenu" />
+      <MenuMobile />
     </div>
   </header>
 </template>
