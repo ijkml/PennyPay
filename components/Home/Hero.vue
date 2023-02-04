@@ -34,7 +34,7 @@ const heroBrands = [
           </div>
 
           <div class="soc-proof">
-            <p>Trusted by</p>
+            <p>Backed by innovative brands</p>
 
             <div class="logo-array">
               <div v-for="l in heroBrands" :key="l.name" class="logo-item">
@@ -69,13 +69,11 @@ const heroBrands = [
 
 <style scoped lang="scss">
 #hero-sect {
-  --hero-bg: url('@img/subtle-prism-1.svg');
-
   @apply flex flex-col justify-center items-center
     overflow-hidden lg:(bg-fixed);
 
-  background: $blk var(--hero-bg) center / cover no-repeat;
-  // #13331b,#0d2218,#045256
+  // GRADIENT ALT: #13331b,#0d2218,#045256
+  background: $blk url('@img/prism.svg') center / cover no-repeat;
   margin-top: -$nav-height;
 
   > div {

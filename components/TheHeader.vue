@@ -138,10 +138,8 @@ watchThrottled(
     items-center relative tracking-wide;
 
   &::after {
-    content: '';
-
     @apply absolute top-full left-0 w-full h-0.1rem transition-300
-      op-0 bg-current transform-gpu translate-y-2;
+      op-0 bg-current transform-gpu translate-y-2 content-[''];
   }
 
   &.active::after {
