@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { footerMenu } from '@data/app-links';
+import { footerMenu, socials } from '@data/app-links';
 </script>
 
 <template>
@@ -12,10 +12,24 @@ import { footerMenu } from '@data/app-links';
           </NuxtLink>
 
           <p class="tagline">
-            Revolutionize your transaction processing experience
+            Revolutionize your transaction processing experience.
           </p>
 
-          <SocialBlock />
+          <div class="socials">
+            <a
+              v-for="s in socials"
+              :key="s.text + s.link"
+              :href="s.link"
+              :title="s.text"
+              class="soc-link"
+              target="_blank"
+              tabindex="0"
+              rel="noopener"
+              referrerpolicy="origin"
+            >
+              <div :class="s.icon" />
+            </a>
+          </div>
         </div>
 
         <div class="link-grid">
@@ -24,7 +38,16 @@ import { footerMenu } from '@data/app-links';
               <h3 class="lc-header" v-text="fm.title" />
               <div class="lc-col">
                 <div v-for="l in fm.items" :key="l.text" class="lc-link">
-                  <NuxtLink tabindex="0" :to="l.link" :external="l.external">
+                  <a
+                    v-if="l.external"
+                    :href="l.link"
+                    target="_blank"
+                    referrerpolicy="origin"
+                    rel="noopener"
+                    tabindex="0"
+                    v-text="l.text"
+                  />
+                  <NuxtLink v-else tabindex="0" :to="l.link">
                     {{ l.text }}
                   </NuxtLink>
                 </div>
@@ -46,6 +69,8 @@ import { footerMenu } from '@data/app-links';
             href="http://ijkml.bio.link"
             target="_blank"
             tabindex="0"
+            rel="noopener"
+            referrerpolicy="origin"
             title="Moses Laurence · UI Developer"
           >
             Website by <strong>ML</strong>
@@ -58,8 +83,8 @@ import { footerMenu } from '@data/app-links';
 
 <style scoped lang="scss">
 .app-footer-def {
-  @apply border-(t-1 zinc op-20) overflow-x-hidden bg-brand-wht
-    dark:(bg-brand-blk text-white);
+  @apply border-(t-1 zinc/16) overflow-x-hidden bg-brand-wht
+    text-zinc-7 dark:(bg-brand-blk text-zinc-2);
 
   > div {
     @apply container px-8 mx-auto max-w-screen-xl;
@@ -75,7 +100,7 @@ import { footerMenu } from '@data/app-links';
 }
 
 .tagline {
-  @apply max-w-sm my-4 text-zinc-700 dark:(text-zinc-300);
+  @apply max-w-60 my-4 text-zinc-700 dark:(text-zinc-300);
 }
 
 .the-logo {
@@ -86,14 +111,13 @@ import { footerMenu } from '@data/app-links';
   @apply mt-6 lg:mt-0 lg:flex-1;
 
   > div {
-    @apply grid grid-cols-2 gap-6
-      sm:grid-cols-3 md:grid-cols-4;
+    @apply grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4;
   }
 }
 
 .lc {
   &-col {
-    @apply my-3 text-sm;
+    @apply my-3 text-sm grid gap-0.5;
   }
 
   &-header {
@@ -102,21 +126,19 @@ import { footerMenu } from '@data/app-links';
   }
 
   &-link {
-    @apply block py-6px truncate;
+    @apply block p-1.5 truncate;
 
     a {
-      @apply cursor-pointer underline-offset-8;
+      @apply cursor-pointer inline-flex outline-none
+        items-center relative tracking-wide px-0.5;
 
-      text-decoration: underline solid transparent 0.1rem;
-      transition: text-decoration-color 300ms, text-underline-offset 300ms,
-        color 250ms;
-      transition-timing-function: ease;
+      &::after {
+        @apply absolute top-full left-0 w-full h-0.1rem transition-300
+          op-0 bg-current transform-gpu translate-y-2 content-[''];
+      }
 
-      &:focus-visible,
-      &:hover {
-        @apply text-brand-pri underline-brand-pri/50
-          dark:(text-brand-lit underline-brand-lit/50)
-            underline-offset-5 outline-none;
+      &:is(:hover, :focus-visible)::after {
+        @apply op-40 translate-y-0;
       }
     }
   }
@@ -141,6 +163,33 @@ import { footerMenu } from '@data/app-links';
 
 .copyright a {
   @apply font-medium;
+}
+
+.socials {
+  @apply flex space-x-2;
+}
+
+.soc-link {
+  @apply rounded-md relative inline-flex h-9 w-9
+    items-center justify-center text-zinc-600
+      dark:(text-zinc-200) outline-none;
+
+  > div {
+    @apply text-20px;
+  }
+
+  &::before {
+    @apply inset-0 w-full h-full absolute op-0 rounded-inherit
+      content-[''] bg-current transition-200;
+  }
+
+  &:is(:hover, :focus-visible) {
+    @apply outline-none text-brand-pri dark:(text-brand-lit);
+
+    &::before {
+      @apply op-12.3;
+    }
+  }
 }
 
 .insignia {

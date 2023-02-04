@@ -1,11 +1,21 @@
 import type { RouteLocationRaw } from 'vue-router';
 
-interface AppLink {
+interface Link {
   text: string;
-  link: RouteLocationRaw;
   menu?: never;
-  external?: boolean;
 }
+
+interface InternalLink extends Link {
+  link: RouteLocationRaw;
+  external?: never;
+}
+
+interface ExternalLink extends Link {
+  link: string;
+  external: true;
+}
+
+type AppLink = InternalLink | ExternalLink;
 
 interface AppLinkGroup {
   title: string;
@@ -19,7 +29,7 @@ const CTA: AppLink = { text: 'Sign In', link: '/start' };
 const USES: AppLink = { text: 'Use Cases', link: '/uses' };
 const ABOUT: AppLink = { text: 'About Us', link: '/about' };
 const NEWS: AppLink = { text: 'Blog & News', link: '/news' };
-const POLICY: AppLink = { text: 'Fair Use', link: '/policy' };
+const POLICY: AppLink = { text: 'Policies', link: '/policy' };
 const PRICING: AppLink = { text: 'Pricing', link: '/pricing' };
 const TERMS: AppLink = { text: 'Terms of Use', link: '/terms' };
 const PRESS: AppLink = { text: 'Press & Legal', link: '/press' };
@@ -54,10 +64,33 @@ const mobileMenu = [
 const footerMenu = [
   { title: 'PennyPay', items: [FEATURES, PLATFORMS, PRICING] },
   { title: 'Company', items: [ABOUT, NEWS, PRESS] },
-  { title: 'Support', items: [FAQS, TERMS, POLICY] },
-  { title: 'Contact', items: [GITHUB, EMAIL, CONTACT] },
+  { title: 'Support', items: [FAQS, POLICY, TERMS] },
+  { title: 'Contact', items: [EMAIL, GITHUB, CONTACT] },
 ];
 
 // ------------------------------------------
 
-export { headerMenu, mobileMenu, footerMenu };
+const socials = [
+  {
+    text: 'Twitter',
+    icon: 'i-carbon-logo-twitter',
+    link: 'https://twitter.com/ijk_ml',
+  },
+  {
+    text: 'GitHub',
+    icon: 'i-carbon-logo-github',
+    link: 'https://github.com/ijkml',
+  },
+  {
+    text: 'Telegram',
+    icon: 'i-carbon-send-alt-filled',
+    link: 'https://t.me/ijk_ml',
+  },
+  {
+    text: 'BioLink',
+    icon: 'i-carbon-direct-link',
+    link: 'https://ijkml.bio.link/',
+  },
+];
+
+export { headerMenu, mobileMenu, footerMenu, socials };
