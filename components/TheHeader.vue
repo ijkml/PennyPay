@@ -78,7 +78,7 @@ onClickOutside(theMmenu, closeMmenu, {
 
       <div class="spread-right">
         <span class="dark-toggle"><DarkToggle /></span>
-        <span class="menu-icon"><SideNavButton /></span>
+        <span class="menu-icon"><MenuMobileButton /></span>
       </div>
     </div>
 
