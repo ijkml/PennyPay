@@ -31,10 +31,12 @@ watch(preferredColor, (pref) => {
 <template>
   <button
     title="Change theme"
-    class="!outline-none"
+    type="button"
     tabindex="0"
+    aria-labelledby="dark-toggle-label"
     @click="switchTheme"
   >
+    <span id="dark-toggle-label" class="sr-only">Change Theme</span>
     <Transition name="fade" mode="out-in">
       <span v-if="icon === 1" class="i-carbon-sun" />
       <span v-else-if="icon === 2" class="i-carbon-moon" />
@@ -57,7 +59,7 @@ watch(preferredColor, (pref) => {
 button {
   @apply w-9 h-9 inline-flex place-items-center rounded-md
     transition duration-300 bg-zinc-5 bg-op-0
-      focus:outline-none text-current;
+      outline-none text-current;
 
   > span {
     @apply block transition m-auto duration-350

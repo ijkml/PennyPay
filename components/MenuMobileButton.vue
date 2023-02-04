@@ -2,12 +2,14 @@
   <button
     type="button"
     class="ham-btn"
-    aria-label="mobile navigation"
-    aria-controls="app-sidebar-menu"
+    tabindex="0"
+    aria-controls="app-mobile-menu"
     :class="{ active: menuIsOpen }"
     :aria-expanded="menuIsOpen"
+    aria-labelledby="menu-btn-label"
     @click="toggleMmenu()"
   >
+    <span id="menu-btn-label" class="sr-only">Toggle Navigation Menu</span>
     <span class="ham-cont">
       <span class="top" />
       <span class="middle" />

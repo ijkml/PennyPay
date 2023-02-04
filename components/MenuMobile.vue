@@ -11,7 +11,7 @@ import { mobileMenu } from '@data/app-links';
     leave-from-class="translate-y-0 opacity-100"
     leave-to-class="translate-y-1 opacity-0"
   >
-    <div v-if="menuIsOpen" class="menu-wrapper">
+    <div v-if="menuIsOpen" id="app-mobile-menu" class="menu-wrapper">
       <template v-for="mm in mobileMenu" :key="mm.title">
         <div class="link-cont">
           <NuxtLink
