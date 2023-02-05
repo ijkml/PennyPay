@@ -99,7 +99,7 @@ const heroBrands = [
 }
 
 #screamer-h1 {
-  font-size: clamp(2.1rem, calc(4vw + 1rem), 3rem);
+  font-size: clamp(2rem, calc(4vw + 1rem), 3rem);
   line-height: 1.2;
 
   @apply text-brand-lit font-bold;
