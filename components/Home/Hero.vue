@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeroImage from '@img/Dash.webp?url';
+import HeroImage from '@img/dashboard.webp?url';
 import LogoAirbnb from '@icons/brands/airbnb.svg?url';
 import LogoRakuten from '@icons/brands/rakuten.svg?url';
 import LogoShopify from '@icons/brands/shopify.svg?url';
