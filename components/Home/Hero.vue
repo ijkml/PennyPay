@@ -1,14 +1,5 @@
 <script setup lang="ts">
 import HeroImage from '@img/dashboard.webp?url';
-import LogoAirbnb from '@icons/brands/airbnb.svg?url';
-import LogoRakuten from '@icons/brands/rakuten.svg?url';
-import LogoShopify from '@icons/brands/shopify.svg?url';
-
-const heroBrands = [
-  { name: 'Airbnb', logo: LogoAirbnb },
-  { name: 'Rakuten', logo: LogoRakuten },
-  { name: 'Shopify', logo: LogoShopify },
-];
 </script>
 
 <template>
@@ -29,25 +20,24 @@ const heroBrands = [
             unleash the full potential of your brand.
           </p>
 
-          <div class="screamer-cta">
-            <VButton to="#learn-more">Learn More</VButton>
+          <div class="inline-flex gap-2 flex-wrap">
+            <VButton to="#learn-more">Register / Sign In</VButton>
+            <VButton variant="secondary" to="#learn-more">Learn More</VButton>
           </div>
 
           <div class="soc-proof">
             <p>Backed by innovative brands</p>
 
-            <div class="logo-array">
-              <div v-for="l in heroBrands" :key="l.name" class="logo-item">
-                <img
-                  :src="l.logo"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                  height="20px"
-                  :alt="`Not ${l.name}`"
-                />
-              </div>
-            </div>
+            <img
+              class="brand-logos"
+              src="@img/brands-1.svg"
+              height="28.5"
+              width="242"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              alt="Rakuten, Shopify and Airbnb"
+            />
           </div>
         </div>
       </div>
@@ -114,16 +104,8 @@ const heroBrands = [
   @apply mt-10 tracking-wide text-zinc-400;
 }
 
-.logo-array {
-  @apply m-0 mt-2 mr-auto inline-flex justify-start
-    p-1 items-center gap-3 sm:gap-5;
-}
-
-.logo-item {
-  @apply invert-86 grayscale-86 op-86;
-
-  > img {
-    @apply w-auto h-10 object-contain transition-300;
-  }
+.brand-logos {
+  @apply invert-86 grayscale-86 op-86 w-auto max-h-10
+    mt-3 object-contain;
 }
 </style>
