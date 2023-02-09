@@ -20,7 +20,7 @@ import HeroImage from '@img/dashboard.webp?url';
             unleash the full potential of your brand.
           </p>
 
-          <div class="inline-flex gap-2 flex-wrap">
+          <div class="cta">
             <VButton to="#learn-more">Register / Sign In</VButton>
             <VButton variant="secondary" to="#learn-more">Learn More</VButton>
           </div>
@@ -101,11 +101,15 @@ import HeroImage from '@img/dashboard.webp?url';
 }
 
 .soc-proof {
-  @apply mt-10 tracking-wide text-zinc-400;
+  @apply mt-10 tracking-wide text-zinc-4;
 }
 
 .brand-logos {
   @apply invert-86 grayscale-86 op-86 w-auto max-h-10
     mt-3 object-contain;
+}
+
+.cta {
+  @apply inline-flex gap-2 flex-wrap text-zinc-2;
 }
 </style>

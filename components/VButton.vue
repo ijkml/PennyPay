@@ -103,18 +103,19 @@ export default {
   &-btn {
     background-image: linear-gradient(to right, var(--stop-1), var(--stop-2));
 
-    @apply inline-block relative rounded transition duration-300
-      cursor-pointer outline-none;
+    @apply inline-flex relative rounded transition-300
+      px-4 py-2.5 cursor-pointer outline-none items-center
+        justify-center min-h-10;
 
     > span {
-      @apply inline-block w-auto px-4 py-2 z-1 font-medium
-        rounded-inherit min-w-15 relative;
+      @apply inline-block w-auto z-1 font-medium
+        rounded-inherit min-w-15 relative leading-none;
     }
 
     &::after {
-      @apply outline-none bg-[var(--stop-3)] absolute left-0 top-0 z-0
-        opacity-0 content-[''] w-full h-full transition duration-300
-          rounded-inherit pointer-events-none;
+      @apply outline-none bg-[var(--stop-3)] absolute left-0
+        opacity-0 content-[''] w-full h-full transition-300
+          rounded-inherit pointer-events-none top-0 z-0;
     }
 
     &:where(:disabled, .disabled) {
