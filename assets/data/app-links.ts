@@ -70,27 +70,4 @@ const footerMenu = [
 
 // ------------------------------------------
 
-const socials = [
-  {
-    text: 'Twitter',
-    icon: 'i-carbon-logo-twitter',
-    link: 'https://twitter.com/ijk_ml',
-  },
-  {
-    text: 'GitHub',
-    icon: 'i-carbon-logo-github',
-    link: 'https://github.com/ijkml',
-  },
-  {
-    text: 'Telegram',
-    icon: 'i-carbon-send-alt-filled',
-    link: 'https://t.me/ijk_ml',
-  },
-  {
-    text: 'BioLink',
-    icon: 'i-carbon-direct-link',
-    link: 'https://ijkml.bio.link/',
-  },
-];
-
-export { headerMenu, mobileMenu, footerMenu, socials };
+export { headerMenu, mobileMenu, footerMenu };
