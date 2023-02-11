@@ -5,18 +5,11 @@
   --scrollbar-track: @wht;
   --scrollbar-thumb: @sec;
 
-  --divider-color-light: rgba(60, 60, 60, 0.12);
-  --divider-color-dark: rgba(84, 84, 84, 0.48);
-
-  --divider-color: var(--divider-color-light);
-  // --app-theme-bg: #{$wht};
+  --scrollbar-thumb: rgba(60, 60, 60, 0.12);
 
   &.dark {
-    --divider-color: var(--divider-color-dark);
-    // --app-theme-bg: #{$blk};
-
     --scrollbar-track: #101a1b;
-    --scrollbar-thumb: var(--divider-color-dark);
+    --scrollbar-thumb: rgba(84, 84, 84, 0.48);
   }
 }
 
@@ -41,8 +34,7 @@ html,
 }
 
 html {
-  overflow-y: scroll;
-  background-color: var(--app-theme-bg);
+  @apply of-y-scroll bg-brand-wht;
 
   &.light {
     color-scheme: light;
@@ -52,6 +44,8 @@ html {
   &.dark {
     color-scheme: dark;
     color: $wht;
+
+    @apply bg-#0f130f;
   }
 }
 
@@ -100,17 +94,14 @@ html {
 .nav-overlay {
   @apply fixed h-full w-full z-6 backdrop-filter
     of-hidden bg-black/50 top-0 left-0;
-
-  // --tw-backdrop-blur: blur(0.05rem);
 }
 
 .hr,
 .divider {
-  border: solid;
   border-width: thin 0 0;
-  border-color: var(--divider-color);
 
-  @apply flex-1 h-0 max-h-0 max-w-full block;
+  @apply flex-1 h-0 max-h-0 max-w-full block
+    border-(solid zinc-5/30.5);
 
   &.inset {
     @apply max-w-4/5;

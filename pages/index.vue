@@ -3,126 +3,14 @@ import { features, stats } from '@data/homepage';
 </script>
 
 <template>
-  <div>
+  <div class="page-root">
     <HomeHero />
 
-    <section
-      id="learn-more"
-      role="region"
-      class="sect-wwd"
-      aria-labelledby="heading-wwd"
-    >
-      <div class="max-screen-cont">
-        <div class="img-cont">
-          <img
-            loading="lazy"
-            src="@img/Uplabs.webp"
-            alt="Screenshots of the PennyPay mobile app in light and dark modes"
-          />
-        </div>
+    <HomeLearnMore />
 
-        <div class="text-cont">
-          <div>
-            <div class="pre-heading">Easy to use</div>
-            <h2 id="heading-wwd" class="heading">
-              Access and manage funds seamlessly across any device
-            </h2>
-            <div class="text">
-              <p>
-                A company that can streamline elegantly will (at some undefined
-                point of time in the future) be able to engineer virtually than
-                to strategize macro-intuitively.
-              </p>
-            </div>
-            <div class="actions">
-              <VButton>Learn More</VButton>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeGlobalTrade />
 
-    <section
-      id="section-wcu"
-      class="sect-wwd reversed"
-      aria-labelledby="heading-wcu"
-    >
-      <div class="wrapper">
-        <div class="img-cont">
-          <img lazy src="@img/s-003.png" alt="" />
-        </div>
-
-        <div class="text-cont">
-          <div>
-            <div class="pre-heading">One of a kind</div>
-            <h2 id="heading-wcu" class="heading">
-              Built for endless uses,<br />
-              across all platforms.
-            </h2>
-
-            <div class="sub-sects">
-              <section aria-labelledby="heading-wcu-s1">
-                <h3 id="heading-wwd-s1" class="heading">
-                  <span>01.</span> Robust integrations
-                </h3>
-                <div class="text">
-                  <p>
-                    Quick: do you have a virally-distributed plan of action for
-                    managing emerging partnerships? Without data hygiene
-                    supervising, you will lack synergies.
-                  </p>
-                </div>
-              </section>
-
-              <section aria-labelledby="heading-wcu-s2">
-                <h3 id="heading-wwd-s2" class="heading">
-                  <span>02.</span> Unparalleled support
-                </h3>
-                <div class="text">
-                  <p>
-                    We understand that it is better to streamline
-                    cyber-virtually. If you incentivize dynamically, you may
-                    also mesh iteravely.
-                  </p>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="section-wwd2"
-      role="region"
-      class="sect-wwd"
-      aria-labelledby="heading-wwd2"
-    >
-      <div class="max-screen-cont">
-        <div class="img-cont">
-          <img lazy src="@img/s-002.png" alt="" />
-        </div>
-
-        <div class="text-cont">
-          <div>
-            <div class="pre-heading">Visualize, understand</div>
-            <h2 id="heading-wwd2" class="heading">
-              Income visualisation at your fingertips
-            </h2>
-            <div class="text">
-              <p>
-                Do you have a plan to become cross-media? We think we know that
-                it is better to engineer virtually than to strategize
-                macro-intuitively.
-              </p>
-            </div>
-            <div class="actions">
-              <VButton>Get Started</VButton>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeMobileApp />
 
     <section
       id="section-feats"
@@ -134,7 +22,6 @@ import { features, stats } from '@data/homepage';
         <div class="header-cont">
           <div class="pre-heading">Built for you</div>
           <h2 id="heading-feats" class="heading">
-            <!-- You earned it, getting paid should not be a hassle -->
             Grow your brand with our unparalleled feature set
           </h2>
           <VDivider centered />
@@ -221,16 +108,6 @@ import { features, stats } from '@data/homepage';
 </template>
 
 <style lang="scss" scoped>
-.heading {
-  @apply leading-tight font-medium mb-3
-    text-h3 max-w-lg md:(text-h2 max-w-xl);
-}
-
-.pre-heading {
-  @apply text-[0.83rem] tracking-[0.13em] m-1 mb-4 font-medium
-    uppercase text-zinc-600 dark:text-zinc-400;
-}
-
 .sect-wwd {
   @apply py-18 lg:(px-8);
 
@@ -406,6 +283,18 @@ import { features, stats } from '@data/homepage';
     p {
       @apply mt-5 text-lg;
     }
+  }
+}
+
+/* ---------- FINAL ---------- */
+.page-root {
+  :deep(.pre-heading) {
+    @apply text-xs tracking-0.5 m-1 mb--1 font-medium
+      uppercase text-zinc-5 dark:text-#a4a4ac;
+  }
+
+  :deep(.heading) {
+    @apply font-medium text-1.8rem/[1.2] md:(text-2.358rem/[1.2]);
   }
 }
 </style>

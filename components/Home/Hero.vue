@@ -26,7 +26,7 @@ import HeroImage from '@img/dashboard.webp?url';
           </div>
 
           <div class="soc-proof">
-            <p>Backed by innovative brands</p>
+            <p>Recognized by innovative powerhouses</p>
 
             <img
               class="brand-logos"
@@ -67,7 +67,7 @@ import HeroImage from '@img/dashboard.webp?url';
   margin-top: -$nav-height;
 
   > div {
-    @apply lg:(flex) w-full z-0 py-9 mt-13;
+    @apply lg:(flex) w-full z-0 py-16 mt-13;
   }
 }
 

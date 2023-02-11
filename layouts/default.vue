@@ -29,7 +29,6 @@ onMounted(() => {
       <slot />
     </main>
     <TheFooter />
-    <!-- <LazyTheSidenav /> -->
     <Transition name="fade">
       <div
         v-show="menuIsOpen"
