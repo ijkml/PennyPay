@@ -290,7 +290,7 @@ import { features, stats } from '@data/homepage';
 .page-root {
   :deep(.pre-heading) {
     @apply text-xs tracking-0.5 m-1 mb--1 font-medium
-      uppercase text-zinc-5 dark:text-#a4a4ac;
+      uppercase text-#58585f dark:text-#a4a4ac;
   }
 
   :deep(.heading) {
