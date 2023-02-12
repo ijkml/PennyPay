@@ -149,7 +149,7 @@ import { stats } from '@data/homepage';
 }
 
 .section-cntred {
-  background: url('@img/bg-001.svg') center / cover no-repeat;
+  // background: url('@img/bg-001.svg') center / cover no-repeat;
 
   @apply py-18 lg:(px-8 bg-fixed);
 
