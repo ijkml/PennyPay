@@ -56,7 +56,7 @@ const features = [
 }
 
 .section-text {
-  @apply text-center max-w-60ch mx-auto mb-8 space-y-4 text-lg;
+  @apply text-center max-w-55ch mx-auto mb-8 space-y-4 text-lg;
 }
 
 .features {

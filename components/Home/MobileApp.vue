@@ -53,11 +53,10 @@
               Access and manage funds seamlessly across any&nbsp;device
             </h2>
             <p>
-              We provide a platform that allows you to stay in control of your
-              finances no matter where you are. With real-time access and a
-              user-friendly design, managing your funds has never been easier.
-              Stay on top of your income and expenses with ease, allowing you to
-              make informed financial decisions no matter your location.
+              Take control of your finances anytime, anywhere with PennyPay. Our
+              platform offers real-time access and an intuitive design, allowing
+              you to effortlessly manage your funds and make informed financial
+              decisions on the go.
             </p>
             <VButton to="/download">Download App</VButton>
           </div>
@@ -87,7 +86,7 @@
   @apply py-1 flex sm:(py-2) md:(py-4);
 
   > div {
-    @apply max-w-60ch space-y-4 lt-sm:mx-auto;
+    @apply max-w-55ch space-y-4 lt-sm:mx-auto;
   }
 }
 
