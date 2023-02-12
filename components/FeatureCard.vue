@@ -19,7 +19,7 @@ const { icon, text, title } = toRefs(props);
     </div>
     <div class="icon">
       <div>
-        <VIcon size="36" :label="title" v-bind="icon" />
+        <VIcon size="32" :label="title" v-bind="icon" />
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ const { icon, text, title } = toRefs(props);
     @apply bg-teal-900/10;
   }
 
-  @apply px-8 pt-8 pb-14 grid gap-8 relative
+  @apply p-8 pb-16 grid gap-8 relative
     rounded-xl grid-cols-4 bg-brand-lit/30
       overflow-hidden transition;
 
@@ -42,9 +42,15 @@ const { icon, text, title } = toRefs(props);
 }
 
 .icon {
-  @apply h-32 w-32 -right-8 -bottom-8 justify-center
+  @apply border -bottom-8 justify-center
     items-center flex absolute text-teal-600
       light:(text-teal-700) pointer-events-none;
+
+  --size: 7rem;
+
+  width: var(--size);
+  height: var(--size);
+  left: calc((100% - var(--size)) / 2);
 
   div {
     @apply border rounded-full flex items-center
@@ -55,7 +61,7 @@ const { icon, text, title } = toRefs(props);
 }
 
 .content {
-  @apply col-span-3;
+  @apply col-span-4 border;
 }
 
 .feat-head {
