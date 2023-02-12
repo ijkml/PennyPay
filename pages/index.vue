@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { features, stats } from '@data/homepage';
+import { stats } from '@data/homepage';
 </script>
 
 <template>
@@ -12,33 +12,7 @@ import { features, stats } from '@data/homepage';
 
     <HomeMobileApp />
 
-    <section
-      id="section-feats"
-      class="section-cntred"
-      role="region"
-      aria-labelledby="heading-feats"
-    >
-      <div class="max-screen-cont">
-        <div class="header-cont">
-          <div class="pre-heading">Built for you</div>
-          <h2 id="heading-feats" class="heading">
-            Grow your brand with our unparalleled feature set
-          </h2>
-          <VDivider centered />
-          <p>
-            Our feature set is unparalleled, but our robust iteration and
-            user-proof configuration is usually considered an amazing
-            achievement.
-          </p>
-        </div>
-
-        <div class="feature-cont">
-          <div v-for="feat in features" :key="feat.title">
-            <FeatureCard v-bind="feat" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeFeatures />
 
     <section
       id="section-facts"
@@ -107,7 +81,18 @@ import { features, stats } from '@data/homepage';
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.pre-heading {
+  @apply text-xs tracking-0.5 m-1 mb--1 font-medium
+    uppercase text-#58585f dark:text-#a4a4ac;
+}
+
+.heading {
+  @apply font-medium text-1.8rem/[1.2] md:(text-2.358rem/[1.2]);
+}
+</style>
+
+<style scoped lang="scss">
 .sect-wwd {
   @apply py-18 lg:(px-8);
 
@@ -161,11 +146,6 @@ import { features, stats } from '@data/homepage';
       @apply md:(pl-0 pr-1/20);
     }
   }
-}
-
-#section-wwd,
-#section-wwd2 {
-  @alt-bg2();
 }
 
 .section-cntred {
@@ -283,18 +263,6 @@ import { features, stats } from '@data/homepage';
     p {
       @apply mt-5 text-lg;
     }
-  }
-}
-
-/* ---------- FINAL ---------- */
-.page-root {
-  :deep(.pre-heading) {
-    @apply text-xs tracking-0.5 m-1 mb--1 font-medium
-      uppercase text-#58585f dark:text-#a4a4ac;
-  }
-
-  :deep(.heading) {
-    @apply font-medium text-1.8rem/[1.2] md:(text-2.358rem/[1.2]);
   }
 }
 </style>

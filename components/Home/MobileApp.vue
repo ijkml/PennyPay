@@ -4,62 +4,58 @@
 <template>
   <div class="app-section-root">
     <section class="app-section" role="region" aria-labelledby="heading_viz">
-      <div>
-        <div class="text-cont">
-          <div>
-            <div class="pre-heading">Make Sense of Your Money</div>
-            <h2 id="heading_viz" class="heading">
-              Transform financial data into actionable&nbsp;insights
-            </h2>
-            <p>
-              PennyPay transforms financial data into actionable insights via
-              visually appealing graphs, charts, and dashboards. Quickly
-              understand income, expenses, and profits to make informed
-              decisions and reach financial goals with confidence.
-            </p>
-          </div>
+      <div class="text-cont">
+        <div>
+          <div class="pre-heading">Make Sense of Your Money</div>
+          <h2 id="heading_viz" class="heading">
+            Transform financial data into actionable&nbsp;insights
+          </h2>
+          <p>
+            PennyPay transforms financial data into actionable insights via
+            visually appealing graphs, charts, and dashboards. Quickly
+            understand income, expenses, and profits to make informed decisions
+            and reach financial goals with confidence.
+          </p>
         </div>
+      </div>
 
-        <div class="img-cont">
-          <img
-            loading="lazy"
-            decoding="async"
-            width="700"
-            height="700"
-            src="@img/visualization.webp"
-            alt="Different data visualization controls in PennyPay"
-          />
-        </div>
+      <div class="img-cont">
+        <img
+          loading="lazy"
+          decoding="async"
+          width="700"
+          height="700"
+          src="@img/visualization.webp"
+          alt="Different data visualization controls in PennyPay"
+        />
       </div>
     </section>
 
     <section class="app-section" role="region" aria-labelledby="heading_app">
-      <div>
-        <div class="img-cont">
-          <img
-            loading="lazy"
-            decoding="async"
-            width="700"
-            height="700"
-            src="@img/devices.webp"
-            alt="Screenshots of the PennyPay mobile app in light and dark modes"
-          />
-        </div>
+      <div class="img-cont">
+        <img
+          loading="lazy"
+          decoding="async"
+          width="700"
+          height="700"
+          src="@img/devices.webp"
+          alt="Screenshots of the PennyPay mobile app in light and dark modes"
+        />
+      </div>
 
-        <div class="text-cont">
-          <div>
-            <div class="pre-heading">Flexibility & Convenience</div>
-            <h2 id="heading_app" class="heading">
-              Access and manage funds seamlessly across any&nbsp;device
-            </h2>
-            <p>
-              Take control of your finances anytime, anywhere with PennyPay. Our
-              platform offers real-time access and an intuitive design, allowing
-              you to effortlessly manage your funds and make informed financial
-              decisions on the go.
-            </p>
-            <VButton to="/download">Download App</VButton>
-          </div>
+      <div class="text-cont">
+        <div>
+          <div class="pre-heading">Flexibility & Convenience</div>
+          <h2 id="heading_app" class="heading">
+            Access and manage funds seamlessly across any&nbsp;device
+          </h2>
+          <p>
+            Take control of your finances anytime, anywhere with PennyPay. Our
+            platform offers real-time access and an intuitive design, allowing
+            you to effortlessly manage your funds and make informed financial
+            decisions on the go.
+          </p>
+          <VButton to="/download">Download App</VButton>
         </div>
       </div>
     </section>
@@ -72,14 +68,8 @@
 }
 
 .app-section {
-  @apply py-3;
-
-  > div {
-    @apply items-center mx-auto p-4 grid transition-250 gap-8
-      sm:(p-8 grid-cols-2) md:(gap-5%) max-w-screen-xl;
-
-    grid-auto-flow: column-reverse;
-  }
+  @apply items-center mx-auto px-4 py-8 grid transition-250
+    gap-8 sm:(p-8 grid-cols-2) md:(gap-5%) max-w-screen-xl;
 }
 
 .text-cont {
