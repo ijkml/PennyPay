@@ -9,10 +9,12 @@ const props = defineProps<{
 }>();
 
 const { icon, text, title } = toRefs(props);
+
+const url = slugify(title.value);
 </script>
 
 <template>
-  <div class="feat-card">
+  <a class="feat-card" :href="`/features/${url}`" @click.prevent>
     <div class="content">
       <h3 class="feat-head">{{ title }}</h3>
       <p>{{ text }}</p>
@@ -20,57 +22,70 @@ const { icon, text, title } = toRefs(props);
     <div class="icon-wrapper">
       <!-- <VIcon size="32" :label="title" v-bind="icon" /> -->
       <div>
-        <div class="i-carbon-home icon" />
+        <div class="icon" :class="[icon]" />
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <style scoped lang="scss">
+@use 'sass:color';
+
 .feat-card {
-  --feat-card-border: rgba(15, 118, 110, 0.666);
+  --main-color: hsla(175, 77%, 26%, 0.7);
+  border: 1px solid var(--main-color);
 
-  @apply transition-250 bg-brand-lit/25
-    rd-xl backdrop-blur-1 of-hidden relative;
-
-  border: 1px solid var(--feat-card-border);
+  @apply rd-xl of-hidden transition-400 cursor-pointer
+    flex flex-col justify-between bg-brand-lit/25;
 
   .dark & {
-    --feat-card-border: rgba(19, 78, 74, 0.666);
+    --main-color: hsla(176, 61%, 19%, 0.7);
 
     @apply bg-emerald-900/10;
   }
 
+  --alt-1: hsl(45, 100%, 25%);
+  --alt-2: hsl(120, 100%, 25%);
+  --alt-3: hsl(200, 100%, 25%);
+
   &:hover {
     .icon {
-      @apply text-pink;
+      color: var(--main-color);
     }
-  }
 
-  &::before {
-    @apply absolute content-[''] bottom-0 left-0 w-full bg-sky;
+    &:nth-of-type(odd) {
+      --main-color: var(--alt-1);
+    }
+    &:nth-of-type(even) {
+      --main-color: var(--alt-2);
+    }
+    &:first-of-type,
+    &:last-of-type {
+      --main-color: var(--alt-3);
+    }
   }
 }
 
 h3 {
-  @apply text-h5 font-medium;
+  @apply text-h5/[1.35] font-medium;
 }
 
 .content {
-  @apply p-8 text-center space-y-4;
+  @apply py-8 px-8 text-center space-y-4;
 }
 
 .icon-wrapper {
-  @apply grid place-items-center;
+  @apply grid place-items-center transition-inherit;
 
   > div {
-    border: thin dashed var(--feat-card-border);
+    border: thin dashed var(--main-color);
+    // color: var(--main-color);
 
-    @apply p-6 mb--5 mt--3 rounded-full;
+    @apply p-6 mb--4 mt--3 rd-100% of-hidden transition-inherit;
   }
 }
 
 .icon {
-  @apply w-9 h-9 transition-250;
+  @apply w-7 h-7 transition-inherit;
 }
 </style>

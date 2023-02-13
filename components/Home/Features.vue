@@ -1,5 +1,36 @@
 <script setup lang="ts">
-import { features } from '@data/homepage';
+const features = [
+  {
+    title: 'Cutting-Edge Tech',
+    text: 'Stay ahead of the game with innovative technologies.',
+    icon: 'i-carbon-ibm-cloud-transit-gateway',
+  },
+  {
+    title: 'Efficient Automation',
+    text: 'Unleash productivity and streamline your workflow.',
+    icon: 'i-carbon-workflow-automation',
+  },
+  {
+    title: 'Scalable Solutions',
+    text: 'Customizable solutions for your unique needs.',
+    icon: 'i-carbon-intent-request-scale-out',
+  },
+  {
+    title: 'Advanced Analytics',
+    text: 'Gain data-driven insights with advanced analytics.',
+    icon: 'i-carbon-data-vis-1',
+  },
+  {
+    title: 'Flexible Deployment',
+    text: 'Flexible implementation options for maximum impact.',
+    icon: 'i-carbon-deployment-pattern',
+  },
+  {
+    title: 'Proactive Support',
+    text: 'Prompt, effective assistance to optimize your experience.',
+    icon: 'i-carbon-gateway-user-access',
+  },
+];
 </script>
 
 <template>
@@ -17,9 +48,12 @@ import { features } from '@data/homepage';
       </div>
 
       <div class="feature-wrapper">
-        <div v-for="feat in features" :key="feat.title">
-          <HomeFeatureCard v-bind="feat" />
-        </div>
+        <HomeFeatureCard
+          v-for="feat in features"
+          :key="feat.title"
+          v-bind="feat"
+          class="feat"
+        />
       </div>
     </div>
   </section>
@@ -41,7 +75,18 @@ import { features } from '@data/homepage';
 }
 
 .feature-wrapper {
-  @apply max-w-6xl mx-auto grid gap-6 mt-13
-    sm:(gap-8 grid-cols-2) lg:(grid-cols-3);
+  @apply max-w-6xl mx-auto grid gap-6 mt-13;
+
+  @media (min-width: 500px) and (max-width: 949.99px) {
+    @apply gap-8 grid-cols-2;
+  }
+
+  @media (min-width: 950px) {
+    @apply grid-cols-3;
+  }
+}
+
+.feat {
+  @apply max-w-92 mx-auto;
 }
 </style>
