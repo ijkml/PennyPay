@@ -31,7 +31,7 @@ const logos = [
       </div>
     </div>
 
-    <svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+    <svg v-once style="display: none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <symbol id="logo-mcdonalds" viewBox="0 0 24 24">
           <path

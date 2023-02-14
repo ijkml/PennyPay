@@ -38,12 +38,12 @@ html {
 
   &.light {
     color-scheme: light;
-    color: rgba(50, 50, 50, 0.9);
+    color: hsla(0, 0%, 20%, 0.9);
   }
 
   &.dark {
     color-scheme: dark;
-    color: $wht;
+    color: hsla(0, 0%, 90%, 0.9);
 
     @apply bg-#0f130f;
   }

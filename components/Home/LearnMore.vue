@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <section id="learn-more" role="region" aria-labelledby="heading_learn-more">
     <div>
@@ -54,7 +51,11 @@
 }
 
 .text-cont {
-  @apply space-y-4 text-lg max-w-55ch mx-auto;
+  @apply space-y-4 max-w-55ch mx-auto;
+
+  p {
+    @apply text-lg;
+  }
 }
 
 .img-cont {

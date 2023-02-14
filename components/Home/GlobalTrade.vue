@@ -48,15 +48,19 @@ const features = [
 
 <style scoped lang="scss">
 #sect-global {
-  @apply px-4 py-16;
+  @apply py-16;
 
   > div {
-    @apply mt-10 mx-auto max-w-screen-xl;
+    @apply mt-10 mx-auto max-w-screen-xl px-4;
   }
 }
 
 .section-text {
-  @apply text-center max-w-55ch mx-auto mb-8 space-y-4 text-lg;
+  @apply text-center max-w-55ch mx-auto mb-8 space-y-4;
+
+  p {
+    @apply text-lg;
+  }
 }
 
 .features {
