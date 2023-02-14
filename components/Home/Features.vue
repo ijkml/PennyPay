@@ -34,7 +34,12 @@ const features = [
 </script>
 
 <template>
-  <section id="feature-set" role="region" aria-labelledby="heading_features">
+  <section
+    id="feature-set"
+    class="dark"
+    role="region"
+    aria-labelledby="heading_features"
+  >
     <div>
       <div class="heading-wrapper">
         <div class="pre-heading">Built for you</div>
@@ -61,9 +66,13 @@ const features = [
 
 <style scoped lang="scss">
 #feature-set {
-  @apply py-16 px-4 sm:(px-8) lg:(bg-fixed);
+  @apply py-24 px-4 sm:(px-8) lg:(bg-fixed) bg-brand-blk;
 
-  background: url('@img/bg-peaks.svg') center / cover no-repeat;
+  $bg: hsl(185, 31%, 5%);
+
+  color: hsla(0, 0%, 90%, 0.9);
+  background: url('@img/bg-peaks.svg') center / cover no-repeat,
+    linear-gradient(to bottom, $bg, $bg);
 
   > div {
     @apply max-w-screen-xl mx-auto;
@@ -71,7 +80,11 @@ const features = [
 }
 
 .heading-wrapper {
-  @apply max-w-55ch mx-auto text-center space-y-4 text-lg;
+  @apply max-w-55ch mx-auto text-center space-y-4;
+
+  p {
+    @apply;
+  }
 }
 
 .feature-wrapper {

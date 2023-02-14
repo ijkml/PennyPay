@@ -2,10 +2,7 @@
 const props = defineProps<{
   title: string;
   text: string;
-  icon: {
-    vbox: string;
-    icon: string;
-  };
+  icon: string;
 }>();
 
 const { icon, text, title } = toRefs(props);
@@ -20,7 +17,6 @@ const url = slugify(title.value);
       <p>{{ text }}</p>
     </div>
     <div class="icon-wrapper">
-      <!-- <VIcon size="32" :label="title" v-bind="icon" /> -->
       <div>
         <div class="icon" :class="[icon]" />
       </div>
@@ -29,28 +25,46 @@ const url = slugify(title.value);
 </template>
 
 <style scoped lang="scss">
-@use 'sass:color';
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nudge {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+}
 
 .feat-card {
-  --main-color: hsla(175, 77%, 26%, 0.7);
+  --main-color: hsla(176, 61%, 19%, 0.7);
   border: 1px solid var(--main-color);
 
   @apply rd-xl of-hidden transition-400 cursor-pointer
-    flex flex-col justify-between bg-brand-lit/25;
-
-  .dark & {
-    --main-color: hsla(176, 61%, 19%, 0.7);
-
-    @apply bg-emerald-900/10;
-  }
+    flex flex-col justify-between bg-emerald-900/13;
 
   --alt-1: hsl(45, 100%, 25%);
   --alt-2: hsl(120, 100%, 25%);
   --alt-3: hsl(200, 100%, 25%);
 
-  &:hover {
+  &:where(:hover, :focus-visible) {
     .icon {
       color: var(--main-color);
+      animation: nudge 2s 200ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+    }
+
+    .icon-wrapper > div::after {
+      animation: spin 8s cubic-bezier(0.4, 0, 0.2, 1) alternate infinite;
     }
 
     &:nth-of-type(odd) {
@@ -78,10 +92,13 @@ h3 {
   @apply grid place-items-center transition-inherit;
 
   > div {
-    border: thin dashed var(--main-color);
-    // color: var(--main-color);
+    @apply p-6 mb--4 mt--3 transition-inherit relative;
 
-    @apply p-6 mb--4 mt--3 rd-100% of-hidden transition-inherit;
+    &::after {
+      @apply content-[''] w-full h-full absolute rd-100% inset-0;
+
+      border: thin dashed var(--main-color);
+    }
   }
 }
 
