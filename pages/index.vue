@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { stats } from '@data/homepage';
 </script>
 
 <template>
@@ -14,34 +13,7 @@ import { stats } from '@data/homepage';
 
     <HomeFeatures />
 
-    <section
-      id="section-facts"
-      class="sect-wwd"
-      role="region"
-      aria-labelledby="heading-facts"
-    >
-      <div class="max-screen-cont">
-        <div class="text-cont">
-          <div class="pre-heading">A Global Platfrom</div>
-          <h2 id="heading-facts" class="heading">
-            Trusted by 30,000+ freelancers and brands
-          </h2>
-          <div class="text">
-            <p>
-              The Sprawl was a handgun and nine rounds of ammunition, and as he
-              made his way down Shiga from the banks of every computer in the
-              tunnel’s ceiling.
-            </p>
-          </div>
-        </div>
-
-        <div class="img-cont">
-          <div class="company-stats">
-            <StatsCard v-for="st in stats" :key="st.title" v-bind="st" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeStats />
 
     <section
       id="section-usedby"
@@ -86,138 +58,14 @@ import { stats } from '@data/homepage';
   @apply text-xs tracking-0.5 m-1 mb--1 font-medium
     uppercase text-#58585f dark:text-#a4a4ac;
 }
-
 .heading {
-  @apply font-medium text-1.8rem/[1.2] md:(text-2.358rem/[1.2]);
+  // text-#323232/90
+  @apply font-medium text-emerald-9/90 text-1.8rem/[1.2]
+    md:(text-2.358rem/[1.2]) dark:(text-emerald-1/90);
 }
 </style>
 
 <style scoped lang="scss">
-.sect-wwd {
-  @apply py-18 lg:(px-8);
-
-  .max-screen-cont {
-    @apply items-center py-4 px-14px sm:(p-8) md:(flex)
-      at-md:(max-w-none);
-
-    > div {
-      @apply w-full lg:w-1/2;
-    }
-  }
-
-  .text {
-    @apply py-2 space-y-2;
-
-    p {
-      @apply text-lg max-w-50ch mx-auto md:(mx-0);
-    }
-  }
-
-  .actions {
-    @apply mt-5;
-  }
-
-  .heading {
-    @apply mx-auto text-center md:(text-left mx-0);
-  }
-
-  .text-cont {
-    @apply py-8 text-center md:(pl-1/20 text-left);
-
-    > div {
-      @apply max-w-xl;
-    }
-  }
-
-  .img-cont {
-    @apply mb-8 md:(mb-0);
-
-    img {
-      @apply max-w-full object-contain mx-auto transition;
-    }
-  }
-
-  &.reversed {
-    .max-screen-cont {
-      @apply flex-row-reverse;
-    }
-
-    .text-cont {
-      @apply md:(pl-0 pr-1/20);
-    }
-  }
-}
-
-.section-cntred {
-  // background: url('@img/bg-001.svg') center / cover no-repeat;
-
-  @apply py-18 lg:(px-8 bg-fixed);
-
-  .max-screen-cont {
-    @apply py-4 px-14px sm:(p-8);
-  }
-
-  .header-cont {
-    @apply text-center  max-w-lg md:(max-w-xl) mx-auto;
-
-    p {
-      @apply mt-5 text-lg;
-    }
-  }
-
-  .feature-cont {
-    @apply mt-16 grid grid-cols-1 gap-8
-      sm:(grid-cols-2) lg:(grid-cols-3);
-
-    > div {
-      @apply row-auto;
-    }
-  }
-
-  .usedby-brands {
-    @apply max-w-screen-xl mx-auto mt-20;
-
-    > div {
-      @apply grid grid-cols-2 gap-8 md:grid-cols-6
-        lg:grid-cols-5;
-    }
-  }
-}
-
-#section-wcu {
-  // @alt-bg2();
-
-  section {
-    @apply max-w-prose;
-
-    .heading {
-      @apply text-2xl mb-1;
-
-      span {
-        @apply opacity-60 text-[90%] mr-1;
-      }
-    }
-  }
-
-  .sub-sects {
-    @apply space-y-10 mt-8;
-  }
-}
-
-#section-facts {
-  @alt-bg2();
-
-  @apply py-18 lg:(px-8);
-
-  .text-cont {
-    @apply md:(pr-1/20 pl-0);
-  }
-
-  .company-stats {
-    @apply p-1 grid grid-cols-4 gap-4 max-w-444px mx-auto;
-  }
-}
-
 #get-started {
   @alt-bg2();
   @apply sm:(px-4 py-16) md:(px-8 py-20);
