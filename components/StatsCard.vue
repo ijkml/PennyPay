@@ -7,6 +7,7 @@ interface StatsCardProps {
   fig: number;
   prefix?: string;
   suffix?: string;
+  link: string;
 }
 
 const props = withDefaults(defineProps<StatsCardProps>(), {
@@ -15,9 +16,10 @@ const props = withDefaults(defineProps<StatsCardProps>(), {
   fig: 0,
   icon: '',
   title: '',
+  link: '/',
 });
 
-const { prefix, suffix, fig, title, icon } = toRefs(props);
+const { prefix, suffix, fig, title, icon, link } = toRefs(props);
 
 const figure = ref(fig.value);
 const target = ref<HTMLElement>();
@@ -53,22 +55,52 @@ const output = useTransition(source, {
 });
 
 onBeforeUnmount(stop);
+
+const external = computed(() => {
+  return link.value.startsWith('http')
+    ? {
+        target: '_blank',
+        rel: 'noopener',
+      }
+    : null;
+});
+
+function openLink() {
+  if (link.value.startsWith('http')) {
+    window.open(link.value, '_blank', 'noopener');
+  }
+}
+</script>
+
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
 </script>
 
 <template>
-  <div class="stats-row">
-    <svg width="24px" height="24px" class="icon">
-      <use :xlink:href="`#${icon}`" />
-    </svg>
-    <div>
-      <span class="sr-only">{{ `${prefix}${fig}${suffix}` }}</span>
-      <div ref="target" aria-hidden="true" class="fig">
-        <span class="fix">{{ prefix }}</span
-        >{{ output.toFixed(dp) }}<span class="fix"> {{ suffix }}</span>
+  <NuxtLink v-slot="{ href }" :to="link" custom>
+    <a
+      :href="href"
+      v-bind="$attrs"
+      v-bind.attr="external"
+      class="stats-row"
+      tabindex="0"
+      @click.prevent="openLink"
+    >
+      <svg width="24px" height="24px" class="icon" role="presentation">
+        <use :xlink:href="`#${icon}`" />
+      </svg>
+      <div>
+        <span class="sr-only">{{ `${prefix}${fig}${suffix}` }}</span>
+        <div ref="target" aria-hidden="true" class="fig">
+          <span class="fix">{{ prefix }}</span
+          >{{ output.toFixed(dp) }}<span class="fix"> {{ suffix }}</span>
+        </div>
       </div>
-    </div>
-    <div class="title">{{ title }}</div>
-  </div>
+      <div class="title">{{ title }}</div>
+    </a>
+  </NuxtLink>
 </template>
 
 
