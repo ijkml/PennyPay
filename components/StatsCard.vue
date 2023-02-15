@@ -32,9 +32,13 @@ const { stop } = useIntersectionObserver(
   target,
   ([{ isIntersecting }]) => {
     if (isIntersecting) {
-      source.value = figure.value;
+      setTimeout(() => {
+        source.value = figure.value;
+      }, 0);
     } else {
-      source.value = fig.value / 100;
+      setTimeout(() => {
+        source.value = fig.value / 100;
+      }, 0);
     }
   },
   {
