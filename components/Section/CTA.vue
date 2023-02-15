@@ -3,10 +3,10 @@
 
 <template>
   <section id="get-started" role="region" aria-labelledby="heading_get-started">
-    <div class="cta-wrapper">
+    <div class="cta-wrapper dark">
       <div class="cta-container">
-        <div class="pre-heading dark">Let's get started</div>
-        <h2 id="heading_get-started" class="heading dark">
+        <div class="pre-heading">Let's get started</div>
+        <h2 id="heading_get-started" class="heading">
           Create an account, start accepting secure&nbsp;payments
         </h2>
         <div class="actions">
@@ -44,7 +44,7 @@
 
 .cta-2nd {
   @apply underline underline-(offset-16 transparent dashed)
-    outline-none op-55 transition-all-250;
+    outline-none op-55 transition-all-250 text-emerald-1/90;
 
   &:where(:hover, :focus-visible) {
     @apply op-100 underline-(offset-8 zinc-5/45);
