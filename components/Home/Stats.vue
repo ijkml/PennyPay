@@ -7,14 +7,14 @@ const stats = [
     icon: 'icon-twitter',
   },
   {
-    title: 'Users',
-    fig: 10.6,
+    title: 'Transactions',
+    fig: 15.5,
     suffix: 'M+',
     icon: 'icon-users',
   },
   {
     title: 'Downloads',
-    fig: 107,
+    fig: 100,
     suffix: 'M+',
     icon: 'icon-download',
   },
@@ -72,32 +72,30 @@ const stats = [
   }
 }
 
-.stats-wrapper {
-  @apply flex;
-}
-
 .company-stats {
-  @apply p-1 inline-grid grid-cols-2 gap-4 mx-auto;
+  @apply px-1 grid grid-cols-2 gap-4 mx-auto py-4 max-w-100;
 
-  > div {
-    @apply rotate--5 transform-gpu relative
-      transition-250 will-change-transform;
-
-    &:nth-child(even) {
-      @apply translate-y-2;
-    }
-  }
-
-  &:hover {
+  @media (hover: hover) and (min-width: 768px) {
     > div {
-      &:hover {
-        @apply scale-115 z-10 rotate-0 translate-0;
+      @apply rotate--5 transform-gpu relative
+        transition will-change-transform;
 
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      &:nth-child(even) {
+        @apply translate-y-2;
       }
+    }
 
-      &:not(:hover) {
-        @apply op-50;
+    &:hover {
+      > div {
+        &:hover {
+          @apply scale-115 z-2 rotate-0 translate-0;
+
+          // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        &:not(:hover) {
+          @apply op-65 dark:op-60;
+        }
       }
     }
   }

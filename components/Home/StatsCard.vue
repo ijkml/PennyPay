@@ -22,23 +22,33 @@ const { prefix, suffix, fig, title, icon } = toRefs(props);
 const figure = ref(fig.value);
 const target = ref<HTMLElement>();
 
-const source = ref(1);
-const { stop } = useIntersectionObserver(target, ([{ isIntersecting }]) => {
-  if (isIntersecting) {
-    source.value = figure.value;
-    stop();
-  }
-});
-
 const dp = computed(() => {
   return figure.value.toString().split('.')[1]?.length;
 });
 
+const source = ref(fig.value / 100);
+
+const { stop } = useIntersectionObserver(
+  target,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      source.value = figure.value;
+    } else {
+      source.value = fig.value / 100;
+    }
+  },
+  {
+    threshold: 0.6,
+  }
+);
+
 const output = useTransition(source, {
-  delay: 300,
+  delay: 1000,
   duration: 3000,
   transition: TransitionPresets.easeOutExpo,
 });
+
+onBeforeUnmount(stop);
 </script>
 
 <template>
@@ -60,19 +70,14 @@ const output = useTransition(source, {
 
 <style lang="scss" scoped>
 .stats-row {
-  // --main-color: hsla(175, 77%, 26%, 0.666);
-  // --main-color: hsla(176, 61%, 19%, 0.666);
-
-  @apply py-4 bg-brand-lit text-brand-pri
-    rd-xl w-full max-w-38 select-none px-4 sm:px-8;
-
-  .dark & {
-    @apply bg-teal-900 text-brand-lit;
-  }
+  box-shadow: 0 0 1px 0 rgba(82, 82, 91, 0.3), 0 1px 2px rgba(0, 0, 0, 0.05);
+  @apply py-4 rd-xl w-full px-4 select-none bg-#ebfee7 sm:px-8
+    dark:(bg-#09201c border-0 text-brand-lit shadow-none);
+  background: hsl(110, 100%, 97%);
 }
 
 .icon {
-  @apply text-emerald-9/75 dark:(text-emerald-1/55) w-7 h-7;
+  @apply text-emerald-9/75 dark:(text-emerald-1/60) w-7 h-7;
 }
 
 .fig {
