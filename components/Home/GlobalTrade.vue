@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import DirectLink from '@icons/DirectLink.svg?component';
-import Lightning from '@icons/Lightning.svg?component';
-
 const features = [
   {
     title: 'Real-time Management',
-    icon: Lightning,
+    icon: 'icon-realtime',
     color: 'orange',
     text: 'PennyPay offers real-time management of financials with immediate visibility of payments and funds for efficient financial control.',
   },
   {
     title: 'Frictionless Integrations',
-    icon: DirectLink,
+    icon: 'icon-integrations',
     color: 'teal',
     text: 'Effortlessly integrate PennyPay into your existing business operations and workflows for seamless transactions and fund management.',
   },
@@ -36,7 +33,9 @@ const features = [
       <div class="features">
         <div v-for="feat in features" :key="feat.title" class="feat">
           <div class="icon" :class="[`svg-${feat.color}`]">
-            <component :is="feat.icon" />
+            <svg width="24px" height="24px">
+              <use :xlink:href="`#${feat.icon}`" />
+            </svg>
           </div>
           <h3 v-text="feat.title" />
           <p v-text="feat.text" />

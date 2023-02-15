@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import SvgSymbols from '@img/defs.svg?skipsvgo';
+</script>
+
 <template>
   <div class="page-root">
     <HomeHero />
@@ -15,6 +19,8 @@
     <HomeSocialProof />
 
     <HomeCTA />
+
+    <SvgSymbols />
   </div>
 </template>
 
