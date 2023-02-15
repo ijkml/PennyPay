@@ -14,9 +14,9 @@ import SvgSymbols from '@img/defs.svg?skipsvgo';
 
     <SectionFeatures />
 
-    <SectionStats />
-
     <SectionSocialProof />
+
+    <SectionStats />
 
     <SectionCTA />
 

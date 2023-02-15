@@ -54,7 +54,7 @@ const stats = [
 
 <style scoped lang="scss">
 #section-stats {
-  @apply py-24;
+  @apply py-24 bg-brand-lit dark:(bg-brand-blk);
 
   > div {
     @apply mx-auto grid gap-8 px-4
