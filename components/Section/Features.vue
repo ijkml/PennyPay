@@ -53,7 +53,7 @@ const features = [
       </div>
 
       <div class="feature-wrapper">
-        <HomeFeatureCard
+        <SectionFeatureCard
           v-for="feat in features"
           :key="feat.title"
           v-bind="feat"

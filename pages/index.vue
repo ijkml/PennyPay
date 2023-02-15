@@ -4,21 +4,21 @@ import SvgSymbols from '@img/defs.svg?skipsvgo';
 
 <template>
   <div class="page-root">
-    <HomeHero />
+    <SectionHero />
 
-    <HomeLearnMore />
+    <SectionLearnMore />
 
-    <HomeGlobalTrade />
+    <SectionGlobalTrade />
 
-    <HomeMobileApp />
+    <SectionMobileApp />
 
-    <HomeFeatures />
+    <SectionFeatures />
 
-    <HomeStats />
+    <SectionStats />
 
-    <HomeSocialProof />
+    <SectionSocialProof />
 
-    <HomeCTA />
+    <SectionCTA />
 
     <SvgSymbols />
   </div>

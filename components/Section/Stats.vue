@@ -45,7 +45,7 @@ const stats = [
 
       <div class="stats-wrapper">
         <div class="company-stats">
-          <HomeStatsCard v-for="st in stats" :key="st.title" v-bind="st" />
+          <SectionStatsCard v-for="st in stats" :key="st.title" v-bind="st" />
         </div>
       </div>
     </div>
