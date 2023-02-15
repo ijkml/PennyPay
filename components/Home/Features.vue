@@ -66,7 +66,7 @@ const features = [
 
 <style scoped lang="scss">
 #feature-set {
-  @apply py-24 px-4 sm:(px-8) lg:(bg-fixed) bg-brand-blk;
+  @apply py-24 px-4 sm:(px-8) lg:(bg-fixed);
 
   $bg: hsl(185, 31%, 5%);
 

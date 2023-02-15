@@ -30,7 +30,7 @@ import HeroImage from '@img/dashboard.webp?url';
 
             <img
               class="brand-logos"
-              src="@img/brands-1.svg"
+              src="@img/brands-hero.svg"
               height="28.5"
               width="242"
               loading="eager"
@@ -63,7 +63,7 @@ import HeroImage from '@img/dashboard.webp?url';
     overflow-hidden lg:(bg-fixed);
 
   // GRADIENT ALT: #13331b,#0d2218,#045256
-  background: $blk url('@img/prism.svg') center / cover no-repeat;
+  background: $blk url('@img/bg-prism.svg') center / cover no-repeat;
   margin-top: -$nav-height;
 
   > div {
