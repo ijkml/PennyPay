@@ -39,10 +39,10 @@ const url = slugify(title.value);
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-15deg);
+    transform: rotate(-10deg);
   }
   75% {
-    transform: rotate(30deg);
+    transform: rotate(35deg);
   }
 }
 
@@ -86,6 +86,10 @@ h3 {
 
 .content {
   @apply py-8 px-8 text-center space-y-4;
+
+  @media (min-width: 500px) and (max-width: 639.99px) {
+    @apply px-5;
+  }
 }
 
 .icon-wrapper {
