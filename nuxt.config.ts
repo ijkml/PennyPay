@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description',
-          content: 'Accept payments globally with no structural lock-in. ',
+          content: 'Accept payments globally with no structural lock-in.',
         },
       ],
     },
