@@ -216,9 +216,9 @@ const socials = [
 }
 
 .insignia {
-  @apply text-zinc-500 underline underline-current
-    decoration-dotted underline-offset-4 cursor-pointer
-      transition duration-300 px-1;
+  @apply text-zinc-6 underline cursor-pointer
+    underline-(transparent dotted offset-4) px-1
+      transition duration-300 dark:text-zinc-4;
 
   strong {
     @apply font-semibold;
