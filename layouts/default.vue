@@ -42,7 +42,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .app-layout--default {
-  @apply min-h-screen flex flex-col mx-auto max-w-screen-2xl relative;
+  @apply min-h-screen flex flex-col relative;
 
   > footer {
     @apply mt-auto;
@@ -50,10 +50,6 @@ onMounted(() => {
 
   > main {
     @apply min-h-50;
-  }
-
-  > header {
-    @apply max-w-screen-2xl;
   }
 }
 
