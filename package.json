@@ -32,5 +32,8 @@
     "typescript": "^4.9.5",
     "vite-plugin-vue-type-imports": "^0.2.4",
     "vite-svg-loader": "^4.0.0"
+  },
+  "dependencies": {
+    "nuxt-umami": "^1.2.1"
   }
 }

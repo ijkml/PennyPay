@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'url';
 import svgLoader from 'vite-svg-loader';
+import {} from 'nuxt-umami';
 
 export default defineNuxtConfig({
   app: {
@@ -29,6 +30,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
     'vite-plugin-vue-type-imports/nuxt',
+    'nuxt-umami',
   ],
   experimental: {
     reactivityTransform: false,
@@ -61,5 +63,10 @@ export default defineNuxtConfig({
     classSuffix: '',
     fallback: 'dark',
     preference: 'dark',
+  },
+  umami: {
+    scriptUrl: 'https://ml-umami.netlify.app/umami.js',
+    websiteId: 'dead95c9-f13c-4728-a825-ac1eb173ed97',
+    domains: 'pennypay.netlify.app',
   },
 });
