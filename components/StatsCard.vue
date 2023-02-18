@@ -49,7 +49,7 @@ const { stop } = useIntersectionObserver(
 );
 
 const output = useTransition(source, {
-  delay: 500,
+  delay: 300,
   duration: 3000,
   transition: TransitionPresets.easeOutExpo,
 });
