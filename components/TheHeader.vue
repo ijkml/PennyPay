@@ -84,8 +84,9 @@ watchThrottled(
 
 <style lang="scss" scoped>
 .app-header {
-  @apply z-8 w-full sticky top-0 bg-brand-wht/80 dark:(bg-brand-blk/80)
-    transform translate-y-0 visible will-change-transform;
+  @apply sticky top-0 visible transform translate-y-0 z-8
+  bg-brand-wht/80 border-(b-1 zinc/13) w-full
+    dark:(bg-brand-blk/80) will-change-transform;
 
   @supports (
     (-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))
@@ -102,7 +103,7 @@ watchThrottled(
   }
 
   &.blend:not(.elevated) {
-    @apply text-zinc-1 bg-brand-blk bg-op-75;
+    @apply text-zinc-1 bg-brand-blk bg-op-75 border-transparent;
 
     @supports (
       (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))

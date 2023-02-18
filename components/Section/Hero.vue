@@ -64,7 +64,7 @@ import HeroImage from '@img/dashboard.webp?url';
 
   // GRADIENT ALT: #13331b,#0d2218,#045256
   background: $blk url('@img/bg-prism.svg') center / cover no-repeat;
-  margin-top: -$nav-height;
+  margin-top: -$nav-height - 2px;
 
   > div {
     @apply lg:(flex) w-full z-0 py-16 mt-13;
