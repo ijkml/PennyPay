@@ -24,7 +24,14 @@ const { img: image, name, text, title } = toRefs(props);
 
       <figcaption class="quote-footer">
         <div class="qf-avatar">
-          <img :src="`/images/avatars/${image}`" alt="" />
+          <img
+            loading="lazy"
+            decoding="async"
+            width="50"
+            height="50"
+            :src="`/images/avatars/${image}`"
+            :alt="name"
+          />
         </div>
 
         <div>
