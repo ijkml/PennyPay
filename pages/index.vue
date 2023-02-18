@@ -18,6 +18,8 @@ import SvgSymbols from '@img/defs.svg?skipsvgo';
 
     <SectionStats />
 
+    <SectionTestimonials />
+
     <SectionCTA />
 
     <SvgSymbols />
