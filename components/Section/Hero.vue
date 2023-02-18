@@ -47,6 +47,8 @@ import HeroImage from '@img/dashboard.webp?url';
           <img
             loading="eager"
             fetchpriority="high"
+            height="353"
+            width="496"
             decoding="async"
             :src="HeroImage"
             alt="Picture showing the PennyPay dashboard"
@@ -85,6 +87,10 @@ import HeroImage from '@img/dashboard.webp?url';
 
   > div {
     @apply w-full h-full flex flex-col justify-center py-8;
+  }
+
+  img {
+    @apply w-full h-full;
   }
 }
 

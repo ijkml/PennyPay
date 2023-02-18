@@ -25,6 +25,7 @@
           height="750"
           loading="lazy"
           decoding="async"
+          fetchpriority="low"
         />
         <img
           src="@img/user-2.webp"
@@ -33,6 +34,7 @@
           height="750"
           loading="lazy"
           decoding="async"
+          fetchpriority="low"
         />
       </div>
     </div>

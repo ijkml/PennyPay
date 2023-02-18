@@ -23,6 +23,7 @@
         <img
           loading="lazy"
           decoding="async"
+          fetchpriority="low"
           width="700"
           height="700"
           src="@img/visualization.webp"
@@ -36,6 +37,7 @@
         <img
           loading="lazy"
           decoding="async"
+          fetchpriority="low"
           width="700"
           height="700"
           src="@img/devices.webp"

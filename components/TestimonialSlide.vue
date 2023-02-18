@@ -27,6 +27,7 @@ const { img: image, name, text, title } = toRefs(props);
           <img
             loading="lazy"
             decoding="async"
+            fetchpriority="low"
             width="50"
             height="50"
             :src="`/images/avatars/${image}`"
