@@ -36,7 +36,11 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // Set custom (efficient) cache policy
-    '/_nuxt/**': { headers: { 'cache-control': 's-maxage=31536000' } },
+    '/_nuxt/**': {
+      headers: {
+        'cache-control': 'max-age=31536000, s-maxage=31536000',
+      },
+    },
   },
   vite: {
     css: {
