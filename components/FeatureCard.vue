@@ -81,7 +81,7 @@ const url = slugify(title.value);
 }
 
 h3 {
-  @apply text-h5/[1.35] font-medium;
+  @apply text-1.25rem/[1.35] font-medium;
 }
 
 .content {

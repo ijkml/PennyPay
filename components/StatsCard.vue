@@ -117,7 +117,7 @@ export default {
 }
 
 .fig {
-  @apply font-medium tracking-wide text-h5 sm:(text-h4) mt-4;
+  @apply font-medium tracking-wide text-1.25rem sm:(text-1.563rem) mt-4;
 }
 
 .fix {
