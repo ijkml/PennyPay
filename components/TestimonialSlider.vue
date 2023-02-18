@@ -6,12 +6,17 @@ const options: SwiperOptions = {
   slidesPerView: 1,
   spaceBetween: 24,
   grabCursor: true,
-  modules: [SwiperMousewheel, SwiperNavigation],
+  modules: [SwiperMousewheel, SwiperNavigation, SwiperAutoplay],
   loop: true,
   mousewheel: true,
   navigation: {
     nextEl: '.splide__arrow.splide__arrow--next',
     prevEl: '.splide__arrow.splide__arrow--prev',
+  },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
   },
   breakpoints: {
     500: {
@@ -37,7 +42,7 @@ const arrows = [
 </script>
 
 <template>
-  <Swiper class="slide-wrap" v-bind.prop="swiperOptions">
+  <Swiper ref="swiperComp" class="slide-wrap" v-bind.prop="swiperOptions">
     <SwiperSlide
       v-for="tmn in testimonies"
       :key="tmn.name"
@@ -53,7 +58,8 @@ const arrows = [
         class="splide__arrow"
         :class="[arr.class]"
       >
-        <svg height="32px" role="presentation" width="32px" viewBox="0 0 32 32">
+        <svg height="32px" role="img" width="32px" viewBox="0 0 32 32">
+          <title v-text="arr.label" />
           <path :d="arr.path" />
         </svg>
       </button>
