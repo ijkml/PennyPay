@@ -1,3 +1,5 @@
+<img src="./public/og.png" alt="PennyPay screenshot" />
+
 <h1 align="center">PennyPay</h1>
 
 <p align="center">
