@@ -47,8 +47,6 @@ import HeroImage from '@img/dashboard.webp?url';
           <img
             loading="eager"
             fetchpriority="high"
-            height="353"
-            width="496"
             decoding="async"
             :src="HeroImage"
             alt="Picture showing the PennyPay dashboard"
