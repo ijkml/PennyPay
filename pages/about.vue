@@ -83,7 +83,8 @@ const logos = [
         <a target="_blank" href="http://twitter.com/ijk_ml">ML</a>
       </p>
     </section>
-    <LogoSvg />
+
+    <LogoSvg class="sr-only" />
   </div>
 </template>
 

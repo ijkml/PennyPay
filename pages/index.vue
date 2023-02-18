@@ -22,7 +22,7 @@ import SvgSymbols from '@img/defs.svg?skipsvgo';
 
     <SectionCTA />
 
-    <SvgSymbols />
+    <SvgSymbols class="sr-only" />
   </div>
 </template>
 
