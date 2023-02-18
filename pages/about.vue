@@ -59,7 +59,14 @@ const logos = [
           href="https://github.com/ijkml/PennyPay"
         >
           github.com/ijkml/PennyPay</a
-        >.
+        >. And you can check the
+        <a
+          href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fpennypay.netlify.app%2F&form_factor=mobile"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Pagespeed here</a
+        ><small> 😎</small>.
       </p>
       <div class="logos">
         <a
