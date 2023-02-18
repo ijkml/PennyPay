@@ -1,3 +1,3 @@
 # TODO
 
-- optimize hero image and loading
+- ~optimize hero image and loading~
