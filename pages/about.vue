@@ -69,7 +69,8 @@ const logos = [
           class="logo"
           target="_blank"
           :title="l.title"
-          rel="noopener noreferrer"
+          rel="noopener"
+          referrerpolicy="origin"
         >
           <svg width="24px" height="24px" class="icon" role="presentation">
             <use :xlink:href="l.icon" />
@@ -114,10 +115,10 @@ p {
     @apply w-6 h-auto;
   }
 
-  @apply outline-none transition-300 op-70 grayscale-50;
+  @apply outline-none transition-300 saturate-30 dark:(saturate-70 op-70);
 
-  &:where(:hover, :focus-visible) {
-    @apply op-100 grayscale-0;
+  &:is(:hover, :focus-visible) {
+    @apply saturate-100 op-100;
   }
 }
 
