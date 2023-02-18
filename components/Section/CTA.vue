@@ -20,7 +20,7 @@
 
 <style scoped lang="scss">
 #get-started {
-  @apply sm:(px-4 py-16) md:(px-8 py-20);
+  @apply sm:(px-4 py-16) md:(px-8);
 }
 
 .cta-wrapper {
