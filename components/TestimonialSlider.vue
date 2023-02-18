@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SwiperOptions } from 'swiper';
+import type { Swiper as SwiperInstance, SwiperOptions } from 'swiper';
 import { testimonies } from '@data/testimonials';
 
 const options: SwiperOptions = {
@@ -32,17 +32,56 @@ const arrows = [
     label: 'Previous slide',
     path: 'M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z',
     class: 'splide__arrow--prev',
+    dir: 'prev',
   },
   {
     label: 'Next slide',
     path: 'M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z',
     class: 'splide__arrow--next',
+    dir: 'next',
   },
 ] as const;
+
+const disabled = reactive({
+  next: true,
+  prev: false,
+});
+
+const theSwiper = ref<SwiperInstance | null>(null);
+
+function getSwiper(instance: SwiperInstance) {
+  theSwiper.value = instance || null;
+}
+
+function updateArrows(swiper: SwiperInstance) {
+  disabled.prev = swiper.isBeginning;
+  disabled.next = swiper.isEnd;
+}
+
+function updateProgress(swiper: SwiperInstance) {
+  updateArrows(swiper);
+}
+
+function slide(dir: 'next' | 'prev') {
+  if (!theSwiper.value) {
+    return;
+  }
+
+  if (dir === 'next') {
+    theSwiper.value.slideNext();
+  } else {
+    theSwiper.value.slidePrev();
+  }
+}
 </script>
 
 <template>
-  <Swiper ref="swiperComp" class="slide-wrap" v-bind.prop="swiperOptions">
+  <Swiper
+    class="slide-wrap"
+    v-bind.prop="swiperOptions"
+    @swiper="getSwiper"
+    @progress="updateProgress"
+  >
     <SwiperSlide
       v-for="tmn in testimonies"
       :key="tmn.name"
@@ -57,6 +96,8 @@ const arrows = [
         :aria-label="arr.label"
         class="splide__arrow"
         :class="[arr.class]"
+        :disabled="disabled[arr.dir]"
+        @click="slide(arr.dir)"
       >
         <svg height="32px" role="img" width="32px" viewBox="0 0 32 32">
           <title v-text="arr.label" />
