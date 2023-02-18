@@ -68,5 +68,6 @@ export default defineNuxtConfig({
     scriptUrl: 'https://ml-umami.netlify.app/umami.js',
     websiteId: 'dead95c9-f13c-4728-a825-ac1eb173ed97',
     domains: 'pennypay.netlify.app',
+    autoTrack: false,
   },
 });
