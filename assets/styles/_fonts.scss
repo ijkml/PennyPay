@@ -3,8 +3,8 @@
   font-display: swap;
   font-weight: 400;
   font-style: normal;
-  src: url("/fonts/gteestipro-regular.woff2") format("woff2"),
-    url("/fonts/gteestipro-regular.woff") format("woff");
+  src: url("../fonts/gteestipro-regular.woff2") format("woff2"),
+    url("../fonts/gteestipro-regular.woff") format("woff");
 }
 
 @font-face {
@@ -12,8 +12,8 @@
   font-display: swap;
   font-weight: 500;
   font-style: normal;
-  src: url("/fonts/gteestipro-medium.woff2") format("woff2"),
-    url("/fonts/gteestipro-medium.woff") format("woff");
+  src: url("../fonts/gteestipro-medium.woff2") format("woff2"),
+    url("../fonts/gteestipro-medium.woff") format("woff");
 }
 
 @font-face {
@@ -21,6 +21,6 @@
   font-display: swap;
   font-weight: 700;
   font-style: normal;
-  src: url("/fonts/gteestipro-bold.woff2") format("woff2"),
-    url("/fonts/gteestipro-bold.woff") format("woff");
+  src: url("../fonts/gteestipro-bold.woff2") format("woff2"),
+    url("../fonts/gteestipro-bold.woff") format("woff");
 }
