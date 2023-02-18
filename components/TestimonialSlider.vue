@@ -6,13 +6,9 @@ const options: SwiperOptions = {
   slidesPerView: 1,
   spaceBetween: 24,
   grabCursor: true,
-  modules: [SwiperMousewheel, SwiperNavigation, SwiperAutoplay],
+  modules: [SwiperMousewheel, SwiperAutoplay],
   loop: true,
   mousewheel: true,
-  navigation: {
-    nextEl: '.splide__arrow.splide__arrow--next',
-    prevEl: '.splide__arrow.splide__arrow--prev',
-  },
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
