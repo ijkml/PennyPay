@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
+    'nuxt-swiper',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
     'vite-plugin-vue-type-imports/nuxt',
