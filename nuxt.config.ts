@@ -34,6 +34,10 @@ export default defineNuxtConfig({
     reactivityTransform: false,
     inlineSSRStyles: false,
   },
+  routeRules: {
+    // Set custom (efficient) cache policy
+    '/_nuxt/**': { headers: { 'cache-control': 's-maxage=31536000' } },
+  },
   vite: {
     css: {
       preprocessorOptions: {
