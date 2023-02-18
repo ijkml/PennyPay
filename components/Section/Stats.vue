@@ -118,9 +118,8 @@ const stats = [
     }
 
     @supports selector(:has(+ *)) {
-      &:has(.stat-box:where(:hover, :focus-visible)):deep(.stat-box):not(
-          :where(:hover, :focus-visible)
-        ) {
+      &:has(.stat-box:where(:hover, :focus-visible))
+        :deep(.stat-box):not(:where(:hover, :focus-visible)) {
         @apply op-60 grayscale-50 blur-1;
       }
     }
