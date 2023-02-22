@@ -21,8 +21,16 @@ import HeroImage from '@img/dashboard.webp?url';
           </p>
 
           <div class="cta">
-            <VButton to="#learn-more">Register / Sign In</VButton>
-            <VButton variant="secondary" to="#learn-more">Learn More</VButton>
+            <VButton to="/sign-in" @click="umTrackEvent('register')">
+              Register / Sign In
+            </VButton>
+            <VButton
+              variant="secondary"
+              to="#learn-more"
+              @click="umTrackEvent('learn-more')"
+            >
+              Learn More
+            </VButton>
           </div>
 
           <div class="soc-proof">
