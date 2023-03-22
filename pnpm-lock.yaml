@@ -18,7 +18,7 @@ specifiers:
   eslint-plugin-vue: ^9.9.0
   nuxt: ^3.2.0
   nuxt-swiper: ^1.0.0
-  nuxt-umami: 2.0.0-beta.3
+  nuxt-umami: 2.0.3
   prettier: ^2.8.4
   sass: ^1.58.1
   typescript: ^4.9.5
@@ -43,7 +43,7 @@ devDependencies:
   eslint-plugin-vue: 9.9.0_eslint@8.34.0
   nuxt: 3.2.0_qgcfkpznwrv37gkfeidkep5ih4
   nuxt-swiper: 1.0.0
-  nuxt-umami: 2.0.0-beta.3
+  nuxt-umami: 2.0.3
   prettier: 2.8.4
   sass: 1.58.1
   typescript: 4.9.5
@@ -5705,8 +5705,8 @@ packages:
       - supports-color
     dev: true
 
-  /nuxt-umami/2.0.0-beta.3:
-    resolution: {integrity: sha512-6DXrL3H3O3GrmWSRs0e2cBcuuefG2TZB/Zg/WgaCU4azXQU+z4JYialmOpX1NHm/EKOIM0d7VPnOgpw2bJYgUA==}
+  /nuxt-umami/2.0.3:
+    resolution: {integrity: sha512-IV5VBEB+6aUNlxIV+qrrVi7xm99pTbTdJLLCtoPYQ3elCdk0A02JlBsWbTQQrfP5sh4zY+YdxKL89Q+Quzt4tg==}
     dev: true
 
   /nuxt/3.2.0_qgcfkpznwrv37gkfeidkep5ih4:
