@@ -2,7 +2,8 @@ import { fileURLToPath } from 'url';
 import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
-  extends: ['nuxt-umami'],
+  // extends: ['nuxt-umami'],
+  extends: ['github:ijkml/nuxt-umami#test-prod'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
