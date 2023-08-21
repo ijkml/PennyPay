@@ -1,7 +1,8 @@
 export default defineAppConfig({
   umami: {
     host: 'https://ml-umami.netlify.app/',
-    // id: 'dead95c9-f13c-4728-a825-ac1eb173ed97',
+    id: 'e479be90-4453-4c42-a569-315559f0eba5',
     autoTrack: true,
+    version: 2,
   },
 });

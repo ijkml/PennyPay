@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@7.26.0",
+  "packageManager": "pnpm@8.6.11",
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev -p 3221",
@@ -25,9 +25,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.9.0",
-    "nuxt": "^3.2.0",
+    "nuxt": "^3.6.5",
     "nuxt-swiper": "^1.0.0",
-    "nuxt-umami": "2.0.4-beta.1",
+    "nuxt-umami": "2.5.2",
     "prettier": "^2.8.4",
     "sass": "^1.58.1",
     "typescript": "^4.9.5",
